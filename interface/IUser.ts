@@ -4,7 +4,6 @@ export interface IUserInfo {
   email: string;
   country: string;
   state: string;
-  phone: string;
   id: string;
   auth_id: string;
   verification_id: string;

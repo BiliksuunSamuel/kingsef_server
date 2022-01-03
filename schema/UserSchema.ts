@@ -6,7 +6,6 @@ export const UserInfoSchema = new mongoose.Schema({
   email: String,
   country: String,
   state: String,
-  phone: String,
   auth_id: String,
   verification_id: String,
   authenticated: Boolean,

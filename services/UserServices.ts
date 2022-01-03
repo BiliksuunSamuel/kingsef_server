@@ -1,4 +1,5 @@
 import { UserModel } from "../model/UserModel";
+import { TUpdateUserInfo } from "../types/UserTypes";
 
 ///GET USER BY ID
 export function GetUserById(id: string) {
@@ -17,10 +18,10 @@ export function GetUserById(id: string) {
 }
 
 ///GET USER BY PHONE
-export function GetUserByPhone(phone: string) {
+export function GetUserByEmail(email: string) {
   return new Promise(function (resolve, reject) {
     try {
-      UserModel.findById({ phone }, (error, results) => {
+      UserModel.findById({ email }, (error, results) => {
         if (error) {
           reject(error);
         }
@@ -55,6 +56,26 @@ export function RegisterUser(info: any) {
       const User = new UserModel(info);
       User.save();
       resolve(User);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+///UPDATE USER INFO
+export function UpdateUserInfo(info: TUpdateUserInfo) {
+  return new Promise(function (resolve, reject) {
+    try {
+      UserModel.updateOne(
+        { _id: info.id },
+        { $set: { email: info.email } },
+        (error) => {
+          if (error) {
+            reject(error);
+          }
+          resolve(true);
+        }
+      );
     } catch (error) {
       reject(error);
     }
