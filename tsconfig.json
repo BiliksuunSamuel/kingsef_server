@@ -1,0 +1,8 @@
+{
+  "name": "node-typescript-api",
+  "version": "1.0.0",
+  "description": "Build an App with Node.js, Express, and TypeScript",
+  "main": "index.js",
+  "scripts": {},
+  "license": "MIT"
+}
