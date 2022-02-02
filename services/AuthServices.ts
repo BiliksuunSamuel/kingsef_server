@@ -45,7 +45,24 @@ export function RegisterAuthInfo(info: any) {
     }
   });
 }
+///VERIFY OTP
 
+export function VerifyOTP(info: { id: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      AuthModel.updateOne(
+        { _id: info.id },
+        { $set: { "otp.status": 1 } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
 //UPDATE AUTH INFO
 export function UpdateAuthInfo(info: TUpdateAuthInfo) {
   return new Promise((resolve, reject) => {
@@ -77,6 +94,50 @@ export function UpdateAuthPassword(info: TUpdateAuthPassword) {
           if (error) {
             reject(error);
           }
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function ResendOTP(info: { id: string; otp: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      AuthModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            "otp.code": info.otp,
+            "otp.status": 0,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function OTPAccepted(info: { id: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      AuthModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            "otp.status": 1,
+            authenticated: true,
+          },
+        },
+        (error) => {
+          error && reject(error);
           resolve(true);
         }
       );

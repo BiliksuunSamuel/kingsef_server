@@ -1,20 +1,29 @@
 import mongoose from "mongoose";
 
 export const VendorSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  country: String,
-  store_id: String,
-  state: String,
-  status: Number,
-  role: Number,
-  verification_id: String,
-  auth_id: String,
-  verified: Boolean,
-  account: {
+  info: {
+    firstname: String,
+    lastname: String,
+    phone: String,
+    email: String,
+    auth_id: String,
+    authenticated: Boolean,
+    otp_expiresIn: String,
+  },
+  country: {
+    state_region: String,
+    dial_code: String,
+    name: String,
+    code: String,
+    flag: String,
+  },
+  account: { status: Number, role: Number },
+  business: { title: String, motto: String, address: String },
+  bank: {
     name: String,
     branch: String,
-    number: String,
+    account_number: String,
     iban: String,
+    account_holder: String,
   },
 });

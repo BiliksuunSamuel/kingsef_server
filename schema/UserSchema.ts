@@ -1,13 +1,20 @@
 import mongoose from "mongoose";
 
 export const UserInfoSchema = new mongoose.Schema({
-  firstname: String,
-  lastname: String,
-  email: String,
-  country: String,
-  state: String,
-  auth_id: String,
-  verification_id: String,
-  authenticated: Boolean,
-  status: Number,
+  info: {
+    firstname: String,
+    lastname: String,
+    phone: String,
+    email: String,
+    auth_id: String,
+    status: Number,
+    authenticated: Boolean,
+  },
+  country: {
+    state_region: String,
+    dial_code: String,
+    name: String,
+    code: String,
+    flag: String,
+  },
 });

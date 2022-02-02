@@ -12,3 +12,15 @@ export interface IProductInfo {
   status: number;
   id: string;
 }
+
+export interface IProductCategory {
+  title: string;
+  description: string;
+  sub_cate: ISubCategory[];
+  _id: string;
+}
+
+export interface ISubCategory {
+  title: string;
+  id: string;
+}

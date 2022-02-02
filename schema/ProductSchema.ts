@@ -10,3 +10,9 @@ export const ProductSchema = new mongoose.Schema({
   name: String,
   price: Number,
 });
+
+export const CategorySchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  sub_cate: [],
+});
