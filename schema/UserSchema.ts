@@ -9,6 +9,7 @@ export const UserInfoSchema = new mongoose.Schema({
     auth_id: String,
     status: Number,
     authenticated: Boolean,
+    otp_expiresIn: String,
   },
   country: {
     state_region: String,
@@ -16,5 +17,6 @@ export const UserInfoSchema = new mongoose.Schema({
     name: String,
     code: String,
     flag: String,
+    currency: String,
   },
 });

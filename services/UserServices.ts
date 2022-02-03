@@ -1,3 +1,4 @@
+import moment from "moment";
 import { UserModel } from "../model/UserModel";
 import { TUpdateUserInfo } from "../types/UserTypes";
 
@@ -21,7 +22,7 @@ export function GetUserById(id: string) {
 export function GetUserByEmail(email: string) {
   return new Promise(function (resolve, reject) {
     try {
-      UserModel.findById({ email }, (error, results) => {
+      UserModel.findOne({ "info.email": email }, (error, results) => {
         if (error) {
           reject(error);
         }
@@ -73,6 +74,47 @@ export function UpdateUserInfo(info: TUpdateUserInfo) {
           if (error) {
             reject(error);
           }
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+/// otp approved
+export function OTPApproved(info: { email: string }) {
+  console.log(info);
+  return new Promise(function (resolve, reject) {
+    try {
+      UserModel.updateOne(
+        { "info.email": info.email },
+        { $set: { "info.authenticated": true } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+//resend otp
+export function ResendOTP(email) {
+  return new Promise(function (resolve, reject) {
+    try {
+      UserModel.updateOne(
+        { "info.email": email },
+        {
+          $set: {
+            "info.otp_expiresIn": moment().add(15, "minutes").format(),
+          },
+        },
+        (error) => {
+          error && reject(error);
           resolve(true);
         }
       );
