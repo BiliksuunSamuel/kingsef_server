@@ -3,4 +3,5 @@ export enum VendorRoutes {
   login = "/api/vendor/login",
   otp_resend = "/api/vendor/otp/resend",
   otp_verify = "/api/vendor/otp/verify",
+  product_upload = "/api/vendor/products/upload",
 }

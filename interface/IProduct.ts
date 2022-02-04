@@ -1,17 +1,6 @@
 export interface IProductImage {
   path: string;
 }
-export interface IProductInfo {
-  images: IProductImage[];
-  name: string;
-  description: string;
-  price: number;
-  discount: number;
-  category: string;
-  vendor_id: string;
-  status: number;
-  id: string;
-}
 
 export interface IProductCategory {
   title: string;
@@ -23,4 +12,32 @@ export interface IProductCategory {
 export interface ISubCategory {
   title: string;
   id: string;
+}
+
+export interface ProductInfo {
+  _id: string;
+  approved: boolean;
+  vendor_id: string;
+  cost_price: number;
+  selling_price: number;
+  discount: number;
+  description: string;
+  quantity: number;
+  date_added: string;
+  name: string;
+  category: string;
+  images: string[];
+}
+export interface INewProductInfo {
+  approved: boolean;
+  vendor_id: string;
+  cost_price: number;
+  selling_price: number;
+  discount: number;
+  description: string;
+  quantity: number;
+  date_added: string;
+  name: string;
+  category: string;
+  images: string[];
 }

@@ -1,4 +1,6 @@
+import moment from "moment";
 import { IAuthInfo } from "../interface/IAuth";
+import { INewProductInfo } from "../interface/IProduct";
 import { IUserInfo } from "../interface/IUser";
 import { IVerificationInfo } from "../interface/IVerification";
 import { GetMoment } from "./Utils";
@@ -36,6 +38,23 @@ export function PrepareVerificationInfo(info: any) {
     verified: false,
     user_id: "",
     code_time: GetMoment(),
+  };
+  return Info;
+}
+
+export function PrepareNewProductInfo(info) {
+  const Info: INewProductInfo = {
+    name: info?.name,
+    cost_price: info?.cost_price,
+    selling_price: info?.selling_price,
+    description: info?.description,
+    discount: info?.discount,
+    date_added: moment().format(),
+    category: info?.category,
+    quantity: info?.quantity,
+    approved: info?.approved,
+    vendor_id: info?.vendor_id,
+    images: [],
   };
   return Info;
 }

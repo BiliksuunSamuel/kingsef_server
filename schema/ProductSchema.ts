@@ -1,14 +1,17 @@
 import mongoose from "mongoose";
 
 export const ProductSchema = new mongoose.Schema({
-  discount: String,
-  images: [],
+  approved: Boolean,
   vendor_id: String,
-  category: String,
-  status: Number,
+  cost_price: Number,
+  selling_price: Number,
+  discount: Number,
   description: String,
+  quantity: Number,
+  date_added: String,
   name: String,
-  price: Number,
+  category: String,
+  images: Array,
 });
 
 export const CategorySchema = new mongoose.Schema({

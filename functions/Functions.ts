@@ -1,5 +1,5 @@
 import OTP from "otp-client";
-
+import fs from "fs";
 export function GenerateOTP(): string {
   const secret = "TPQDAHVBZ5NBO5LFEQKC7V7UPATSSMFY";
   const options = {
@@ -11,4 +11,25 @@ export function GenerateOTP(): string {
   const otp = new OTP(secret, options);
   const token = otp.getToken(); // e.g. 74837433
   return token;
+}
+
+export function WriteBase64File(base64Data, id, images: string[]) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const fname = id + Date.now().toString() + `.jpg`;
+      fs.writeFile(
+        "./public/products/" + fname,
+        base64Data,
+        "base64",
+        function (error) {
+          if (error) {
+            reject(error);
+          }
+          resolve([...images, "products/" + fname]);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
