@@ -6,6 +6,10 @@ import cors from "cors";
 import "./connection/DbConnection";
 import { AdminRouter, Router, UserRouter, VendorRouter } from "./router";
 import moment from "moment";
+import {
+  getAllStates,
+  getStatesOfCountry,
+} from "country-state-city/dist/lib/state";
 
 const port = process.env.PORT || process.env.port;
 const app = express();

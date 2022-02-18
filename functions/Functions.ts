@@ -13,7 +13,7 @@ export function GenerateOTP(): string {
   return token;
 }
 
-export function WriteBase64File(base64Data, id, images: string[]) {
+export function WriteBase64File(base64Data, id) {
   return new Promise(function (resolve, reject) {
     try {
       const fname = id + Date.now().toString() + `.jpg`;
@@ -25,7 +25,7 @@ export function WriteBase64File(base64Data, id, images: string[]) {
           if (error) {
             reject(error);
           }
-          resolve([...images, "products/" + fname]);
+          resolve("products/" + fname);
         }
       );
     } catch (error) {

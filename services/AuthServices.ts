@@ -18,10 +18,10 @@ export function GetAuthById(id: string) {
 }
 
 ///GET AUTH BY EMAIL
-export function GetAuthByEmail(email: string) {
+export function GetAuthByEmail(info: { email: string }) {
   return new Promise(function (resolve, reject) {
     try {
-      AuthModel.findById({ email }, (error, results) => {
+      AuthModel.findById({ email: info.email }, (error, results) => {
         if (error) {
           reject(error);
         }

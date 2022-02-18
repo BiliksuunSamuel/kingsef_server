@@ -3,7 +3,7 @@ export interface IVendorInfo {
   email: string;
   country: string;
   store_id: string;
-  state: string;
+  state: any;
   status: number;
   role: number;
   verification_id: string;

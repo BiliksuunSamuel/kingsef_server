@@ -9,11 +9,12 @@ export interface IPersonInfo {
   otp_expiresIn: string;
 }
 export interface ICountryInfo {
-  state_region: string;
+  state_region: any;
   dial_code: string;
   name: string;
   code: string;
   flag: string;
+  currency: string;
 }
 
 export interface IAccountInfo {

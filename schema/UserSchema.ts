@@ -12,7 +12,7 @@ export const UserInfoSchema = new mongoose.Schema({
     otp_expiresIn: String,
   },
   country: {
-    state_region: String,
+    state_region: Object,
     dial_code: String,
     name: String,
     code: String,

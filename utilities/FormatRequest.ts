@@ -1,6 +1,6 @@
 import moment from "moment";
 import { IAuthInfo } from "../interface/IAuth";
-import { INewProductInfo } from "../interface/IProduct";
+import { INewProductInfo, IProductInfo } from "../interface/IProduct";
 import { IUserInfo } from "../interface/IUser";
 import { IVerificationInfo } from "../interface/IVerification";
 import { GetMoment } from "./Utils";
@@ -42,19 +42,31 @@ export function PrepareVerificationInfo(info: any) {
   return Info;
 }
 
-export function PrepareNewProductInfo(info) {
-  const Info: INewProductInfo = {
+export function PrepareNewProductInfo(
+  info: INewProductInfo,
+  image: string,
+  gallery: string[]
+) {
+  const Info: IProductInfo = {
     name: info?.name,
-    cost_price: info?.cost_price,
-    selling_price: info?.selling_price,
+    sales_price: info.sales_price,
+    regular_price: info.regular_price,
     description: info?.description,
     discount: info?.discount,
     date_added: moment().format(),
     category: info?.category,
     quantity: info?.quantity,
-    approved: info?.approved,
+    approved: false,
     vendor_id: info?.vendor_id,
-    images: [],
+    image,
+    gallery,
+    seo: info.seo,
+    cross_sells: info.cross_sells,
+    estimated_delivery: info.estimated_delivery,
+    variable: info.variable,
+    up_sells: info.up_sells,
+    merit: 0,
+    type: info.type,
   };
   return Info;
 }
