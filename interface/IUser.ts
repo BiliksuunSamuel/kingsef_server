@@ -3,7 +3,7 @@ export interface IUserInfo {
   lastname: string;
   email: string;
   country: ICountry;
-  state: string;
+  state: any;
   id: string;
   auth_id: string;
   verification_id: string;
