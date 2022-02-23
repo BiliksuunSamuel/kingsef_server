@@ -4,17 +4,14 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import "./connection/DbConnection";
+import socketIo from "socket.io";
 import { AdminRouter, Router, UserRouter, VendorRouter } from "./router";
-import moment from "moment";
-import {
-  getAllStates,
-  getStatesOfCountry,
-} from "country-state-city/dist/lib/state";
-
+import SocketConnection from "./messaging/SocketConnection";
 const port = process.env.PORT || process.env.port;
 const app = express();
 const server = http.createServer(app);
-
+const io = new socketIo.Server(server);
+SocketConnection(io);
 app.use(cors());
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: false, limit: "100mb" }));
@@ -30,3 +27,4 @@ app.use(VendorRouter);
 server.listen(port, () => {
   console.log(`server running on http://localhost:${port}`);
 });
+////////////

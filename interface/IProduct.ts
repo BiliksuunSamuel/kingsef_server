@@ -15,7 +15,7 @@ export interface ISubCategory {
 }
 
 export interface IProductInfo {
-  approved: boolean;
+  status: { approved: boolean; declined: boolean; processed: number };
   vendor_id: string;
   regular_price: number;
   sales_price: number;

@@ -51,3 +51,50 @@ export function GetProducts() {
     }
   });
 }
+
+//APPROVE PRODUCT
+export function ApproveProduct(info: { id: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      ProductInfoModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            "status.approved": true,
+            "status.processed": 1,
+            "status.declined": false,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+//DeCLINE PRODUCT
+export function DeclineProduct(info: { id: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      ProductInfoModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            "status.approved": false,
+            "status.processed": 1,
+            "status.declined": true,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

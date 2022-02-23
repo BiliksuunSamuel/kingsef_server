@@ -4,3 +4,4 @@ export { default as GetProductsController } from "./FetchProductsController";
 export { default as AddMeritController } from "./AddMeritController";
 export { default as GetMeritsController } from "./GetMeritsController";
 export { default as LoginController } from "./LoginController";
+export { default as GetVendorsController } from "./GetVendorsController";

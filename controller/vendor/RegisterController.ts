@@ -32,6 +32,7 @@ export default async function (req, res) {
       };
       Auth.password = await HashPassword(Auth.password);
       info.country.dial_code = info.country.dial_code[0];
+      info.country.currency = info.country.currency[0];
       info.info.otp_expiresIn = moment().add(15, "minutes").format();
       const AuthInfo: any = await RegisterAuthInfo(Auth);
       console.log(AuthInfo);

@@ -56,7 +56,7 @@ export function PrepareNewProductInfo(
     date_added: moment().format(),
     category: info?.category,
     quantity: info?.quantity,
-    approved: false,
+    status: { approved: false, processed: 0, declined: false },
     vendor_id: info?.vendor_id,
     image,
     gallery,

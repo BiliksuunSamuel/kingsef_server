@@ -7,4 +7,6 @@ export enum Routes {
   merit_add = "/api/merits/add",
   merit_get = "/api/merits/get",
   auth_login = "/api/auth/login",
+  vendors_get = "/api/vendors/get",
+  product_approve_decline = "/api/product/approve_decline",
 }

@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
-import { CountryStateSchema, DeliverPricingSchema } from "../schema/Schema";
+import { DeliverPricingSchema, NotificationSchema } from "../schema/Schema";
 
-export const CountryStatesModel = mongoose.model("state", CountryStateSchema);
 export const DeliveryPricingModel = mongoose.model(
   "delivery_pricing",
   DeliverPricingSchema
+);
+
+export const NotificationModel = mongoose.model(
+  "notification",
+  NotificationSchema
 );

@@ -1,4 +1,4 @@
-import { DeliveryPricingModel } from "../model/Model";
+import { DeliveryPricingModel, NotificationModel } from "../model/Model";
 
 export function AddDeliveryPricing(info: any) {
   return new Promise(function (resolve, reject) {
@@ -35,6 +35,18 @@ export function GetDeliveryPricingByISOCode(info: { isoCode: string }) {
           resolve(results);
         }
       );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function AddNotification(info: any) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const Info = new NotificationModel(info);
+      Info.save();
+      resolve(true);
     } catch (error) {
       reject(error);
     }

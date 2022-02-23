@@ -17,3 +17,13 @@ export interface IDeliverPricing {
   amount: number;
   reason: string;
 }
+
+export interface INotificationInfo {
+  subject: string;
+  reference: { title: string; id: string };
+  date: string;
+  sender: { isAdmin: boolean; id: string };
+  message: string;
+  status: { seen: boolean };
+  receiver: string;
+}

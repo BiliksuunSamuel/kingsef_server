@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const ProductSchema = new mongoose.Schema({
-  approved: Boolean,
+  status: Object,
   vendor_id: String,
   regular_price: Number,
   sales_price: Number,
