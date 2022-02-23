@@ -53,7 +53,7 @@ export function GetProducts() {
 }
 
 //APPROVE PRODUCT
-export function ApproveProduct(info: { id: string }) {
+export function ApproveProduct(info: { id: string; merit: number }) {
   return new Promise(function (resolve, reject) {
     try {
       ProductInfoModel.updateOne(
@@ -63,6 +63,7 @@ export function ApproveProduct(info: { id: string }) {
             "status.approved": true,
             "status.processed": 1,
             "status.declined": false,
+            merit: info.merit,
           },
         },
         (error) => {

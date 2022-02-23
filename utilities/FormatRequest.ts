@@ -67,6 +67,7 @@ export function PrepareNewProductInfo(
     up_sells: info.up_sells,
     merit: 0,
     type: info.type,
+    country_code: info?.country_code,
   };
   return Info;
 }

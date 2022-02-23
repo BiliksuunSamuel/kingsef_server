@@ -20,6 +20,7 @@ export const ProductSchema = new mongoose.Schema({
   brands: String,
   variable: Array,
   merit: Number,
+  country_code: String,
 });
 
 export const CategorySchema = new mongoose.Schema({

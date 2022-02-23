@@ -11,10 +11,10 @@ export default async function ProductApproveDeclineController(req, res) {
   try {
     const info = req.body;
     if (info.approve) {
-      await ApproveProduct({ id: info.id });
+      await ApproveProduct({ id: info.id, merit: info.merit });
       return res.send({
         data: await GetProducts(),
-        message: "product approved",
+        message: "Product Approved",
       });
     } else if (info.decline) {
       const Note: INotificationInfo = {
@@ -30,7 +30,7 @@ export default async function ProductApproveDeclineController(req, res) {
       await DeclineProduct({ id: info.id });
       return res.send({
         data: await GetProducts(),
-        message: "product declined",
+        message: "Product Declined",
       });
     } else {
       return res.send({ data: await GetProducts(), message: null });

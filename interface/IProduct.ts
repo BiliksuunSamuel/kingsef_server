@@ -35,6 +35,7 @@ export interface IProductInfo {
   brands?: string;
   variable: { id: string; title: string; value: string }[];
   merit: number;
+  country_code: string;
 }
 
 export interface INewProductInfo {
@@ -59,4 +60,5 @@ export interface INewProductInfo {
   estimated_delivery: { start: string; duration: number };
   brands?: string;
   variable: { id: string; title: string; value: string }[];
+  country_code: string;
 }
