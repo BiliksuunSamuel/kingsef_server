@@ -6,4 +6,6 @@ export enum VendorRoutes {
   product_upload = "/api/vendor/products/upload",
   delivery_pricing_add = "/api/vendor/delivery/pricing/add",
   delivery_pricing_get = "/api/vendor/delivery/pricing/get",
+  banner_add = "/api/vendor/advertisement/add",
+  banner_get = "/api/vendor/advertisement/get",
 }

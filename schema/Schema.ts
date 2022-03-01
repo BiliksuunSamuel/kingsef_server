@@ -16,3 +16,7 @@ export const NotificationSchema = new mongoose.Schema({
   status: Object,
   receiver: String,
 });
+
+export const AdvertSchema = new mongoose.Schema({
+  path: String,
+});

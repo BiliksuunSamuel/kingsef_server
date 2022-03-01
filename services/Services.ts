@@ -1,4 +1,8 @@
-import { DeliveryPricingModel, NotificationModel } from "../model/Model";
+import {
+  AdvertModel,
+  DeliveryPricingModel,
+  NotificationModel,
+} from "../model/Model";
 
 export function AddDeliveryPricing(info: any) {
   return new Promise(function (resolve, reject) {
@@ -47,6 +51,31 @@ export function AddNotification(info: any) {
       const Info = new NotificationModel(info);
       Info.save();
       resolve(true);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function AddAdvert(info: any) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const Info = new AdvertModel(info);
+      Info.save();
+      resolve(Info);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function GetAdverts() {
+  return new Promise(function (resolve, reject) {
+    try {
+      AdvertModel.find((error, results) => {
+        error && reject(error);
+        resolve(results);
+      });
     } catch (error) {
       reject(error);
     }
