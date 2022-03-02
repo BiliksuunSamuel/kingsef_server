@@ -27,3 +27,11 @@ export interface INotificationInfo {
   status: { seen: boolean };
   receiver: string;
 }
+export interface IUserReview {
+  message: string;
+  date_added: string;
+  sender: {
+    country_name: string;
+    country_code: string;
+  };
+}

@@ -20,3 +20,9 @@ export const NotificationSchema = new mongoose.Schema({
 export const AdvertSchema = new mongoose.Schema({
   path: String,
 });
+
+export const ReviewsSchema = new mongoose.Schema({
+  message: String,
+  date_added: String,
+  sender: Object,
+});

@@ -3,6 +3,7 @@ import {
   AdvertSchema,
   DeliverPricingSchema,
   NotificationSchema,
+  ReviewsSchema,
 } from "../schema/Schema";
 
 export const DeliveryPricingModel = mongoose.model(
@@ -16,3 +17,5 @@ export const NotificationModel = mongoose.model(
 );
 
 export const AdvertModel = mongoose.model("advert", AdvertSchema);
+
+export const ReviewsModel = mongoose.model("review", ReviewsSchema);

@@ -2,6 +2,7 @@ import {
   AdvertModel,
   DeliveryPricingModel,
   NotificationModel,
+  ReviewsModel,
 } from "../model/Model";
 
 export function AddDeliveryPricing(info: any) {
@@ -73,6 +74,31 @@ export function GetAdverts() {
   return new Promise(function (resolve, reject) {
     try {
       AdvertModel.find((error, results) => {
+        error && reject(error);
+        resolve(results);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function AddReview(info) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const Info = new ReviewsModel(info);
+      Info.save();
+      resolve(Info);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function GetReviews() {
+  return new Promise(function (resolve, reject) {
+    try {
+      ReviewsModel.find((error, results) => {
         error && reject(error);
         resolve(results);
       });
