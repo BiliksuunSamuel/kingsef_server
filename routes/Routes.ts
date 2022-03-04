@@ -10,4 +10,5 @@ export enum Routes {
   vendors_get = "/api/vendors/get",
   product_approve_decline = "/api/product/approve_decline",
   users_get = "/api/users/get",
+  vendor_acccount_status = "/api/vendor/account/status",
 }

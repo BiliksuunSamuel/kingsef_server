@@ -103,3 +103,20 @@ export function ResendOTP(email) {
     }
   });
 }
+
+export function AccountStatus(info: { id: string; status: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      VendorInfoModel.updateOne(
+        { _id: info.id },
+        { $set: { "account.status": info.status } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

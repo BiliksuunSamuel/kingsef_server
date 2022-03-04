@@ -2,6 +2,7 @@ import express from "express";
 import {
   GetUsersController,
   ProductApproveDeclineController,
+  VendorAccountStatusController,
 } from "../controller/admin";
 import {
   AddCategoryController,
@@ -25,4 +26,5 @@ router.post(Routes.auth_login, LoginController);
 router.post(Routes.vendors_get, GetVendorsController);
 router.post(Routes.product_approve_decline, ProductApproveDeclineController);
 router.post(Routes.users_get, GetUsersController);
+router.post(Routes.vendor_acccount_status, VendorAccountStatusController);
 export default router;
