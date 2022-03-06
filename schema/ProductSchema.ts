@@ -26,5 +26,5 @@ export const ProductSchema = new mongoose.Schema({
 export const CategorySchema = new mongoose.Schema({
   title: String,
   description: String,
-  sub_cate: [],
+  sub_cate: Array,
 });

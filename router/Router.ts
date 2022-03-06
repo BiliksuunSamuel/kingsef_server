@@ -1,7 +1,14 @@
 import express from "express";
 import {
+  AddPackageController,
+  AddPackageOrderController,
+  AddPressingCatController,
+  GetPackageController,
+  GetPackageOrdersController,
+  GetPressingCatsController,
   GetUsersController,
   ProductApproveDeclineController,
+  UpdatePressingCatController,
   VendorAccountStatusController,
 } from "../controller/admin";
 import {
@@ -27,4 +34,11 @@ router.post(Routes.vendors_get, GetVendorsController);
 router.post(Routes.product_approve_decline, ProductApproveDeclineController);
 router.post(Routes.users_get, GetUsersController);
 router.post(Routes.vendor_acccount_status, VendorAccountStatusController);
+router.post(Routes.pressing_cat_add, AddPressingCatController);
+router.post(Routes.pressing_cat_get, GetPressingCatsController);
+router.post(Routes.pressing_cat_update, UpdatePressingCatController);
+router.post(Routes.package_add, AddPackageController);
+router.post(Routes.package_get, GetPackageController);
+router.post(Routes.package_order_add, AddPackageOrderController);
+router.post(Routes.package_order_get, GetPackageOrdersController);
 export default router;

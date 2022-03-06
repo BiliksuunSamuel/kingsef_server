@@ -26,3 +26,28 @@ export const ReviewsSchema = new mongoose.Schema({
   date_added: String,
   sender: Object,
 });
+export const DisplayCatSchema = new mongoose.Schema({
+  cat_ref: String,
+  image: String,
+});
+
+export const PackageSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  sale_price: Number,
+  date_added: String,
+  quantity: Number,
+  status: Number,
+  seller: String,
+  images: Array,
+});
+
+export const PackageOrderSchema = new mongoose.Schema({
+  items: Array,
+  cost: Number,
+  total: Number,
+  vendor: String,
+  group: Number,
+  date_ordered: String,
+  status: Object,
+});

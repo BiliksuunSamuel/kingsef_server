@@ -11,7 +11,8 @@ export interface IProductCategory {
 
 export interface ISubCategory {
   title: string;
-  id: string;
+  id: any;
+  value: any;
 }
 
 export interface IProductInfo {

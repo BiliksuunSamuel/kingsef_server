@@ -35,3 +35,29 @@ export interface IUserReview {
     country_code: string;
   };
 }
+
+export interface IDisplayCat {
+  _id: string;
+  cat_ref: string;
+  image: string;
+}
+
+export interface IPackageOrder {
+  items: { id: string; qnt: number; seller: string }[];
+  cost: number;
+  total: number;
+  vendor: string;
+  group: number;
+}
+
+export interface IPackageModel {
+  description: string;
+  quantity: number;
+  images: string[];
+  date_added: string;
+  sale_price: number;
+  seller: string;
+  status: number;
+  name: string;
+  _id: string;
+}
