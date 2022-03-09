@@ -61,3 +61,12 @@ export interface IPackageModel {
   name: string;
   _id: string;
 }
+
+export interface IAdminComments {
+  type: number;
+  receipient: number;
+  message: string;
+  seen: string[];
+  sender: string;
+  date_added: string;
+}

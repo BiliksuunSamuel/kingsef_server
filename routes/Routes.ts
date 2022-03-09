@@ -18,4 +18,7 @@ export enum Routes {
   package_get = "/api/package/get",
   package_order_add = "/api/package/order/add",
   package_order_get = "/api/package/orders/get",
+  admin_comments_add = "/api/admin/comments/add",
+  admin_comments_get = "/api/admin/comments/get",
+  admin_comments_remove = "/api/admin/comments/remove",
 }

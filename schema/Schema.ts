@@ -51,3 +51,12 @@ export const PackageOrderSchema = new mongoose.Schema({
   date_ordered: String,
   status: Object,
 });
+
+export const AdminCommentsSchema = new mongoose.Schema({
+  type: Number,
+  receipient: Number,
+  message: String,
+  seen: Array,
+  sender: String,
+  date_added: String,
+});

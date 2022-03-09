@@ -20,6 +20,10 @@ import {
   GetVendorsController,
   LoginController,
 } from "../controller/controllers";
+import {
+  AddAdminCommentsController,
+  GetAdminCommentsController,
+} from "../controller/Reviews";
 import { Routes } from "../routes/Routes";
 
 const router = express.Router();
@@ -41,4 +45,6 @@ router.post(Routes.package_add, AddPackageController);
 router.post(Routes.package_get, GetPackageController);
 router.post(Routes.package_order_add, AddPackageOrderController);
 router.post(Routes.package_order_get, GetPackageOrdersController);
+router.post(Routes.admin_comments_add, AddAdminCommentsController);
+router.post(Routes.admin_comments_get, GetAdminCommentsController);
 export default router;

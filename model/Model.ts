@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import {
+  AdminCommentsSchema,
   AdvertSchema,
   DeliverPricingSchema,
   DisplayCatSchema,
@@ -28,4 +29,9 @@ export const PackageModel = mongoose.model("package", PackageSchema);
 export const PackageOrderModel = mongoose.model(
   "package_order",
   PackageOrderSchema
+);
+
+export const AdminCommentsModel = mongoose.model(
+  "admin_comment",
+  AdminCommentsSchema
 );
