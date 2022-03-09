@@ -30,14 +30,6 @@ export default async function (req, res) {
         authenticated: false,
         otp: { code: otp, status: 0 },
       };
-      Auth.password = await HashPassword(Auth.password);
-      info.country.dial_code = info.country.dial_code[0];
-      info.country.currency = info.country.currency[0];
-      info.info.otp_expiresIn = moment().add(15, "minutes").format();
-      const AuthInfo: any = await RegisterAuthInfo(Auth);
-      console.log(AuthInfo);
-      info.info.auth_id = AuthInfo._id;
-      const UInfo: any = await AddVendor(info);
       await SendMail(
         PrepareEmail({
           sender: "KinSef",
@@ -49,6 +41,14 @@ export default async function (req, res) {
           }),
         })
       );
+      Auth.password = await HashPassword(Auth.password);
+      info.country.dial_code = info.country.dial_code[0];
+      info.country.currency = info.country.currency[0];
+      info.info.otp_expiresIn = moment().add(15, "minutes").format();
+      const AuthInfo: any = await RegisterAuthInfo(Auth);
+      console.log(AuthInfo);
+      info.info.auth_id = AuthInfo._id;
+      const UInfo: any = await AddVendor(info);
       res.status(404).send(UInfo);
     }
   } catch (error) {
