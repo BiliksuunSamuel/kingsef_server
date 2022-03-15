@@ -21,4 +21,6 @@ export enum Routes {
   admin_comments_add = "/api/admin/comments/add",
   admin_comments_get = "/api/admin/comments/get",
   admin_comments_remove = "/api/admin/comments/remove",
+  package_like = "/api/package/like",
+  package_favorite = "/api/package/favorite",
 }

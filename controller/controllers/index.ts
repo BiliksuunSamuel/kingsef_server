@@ -5,3 +5,5 @@ export { default as AddMeritController } from "./AddMeritController";
 export { default as GetMeritsController } from "./GetMeritsController";
 export { default as LoginController } from "./LoginController";
 export { default as GetVendorsController } from "./GetVendorsController";
+export { default as PackageLikesController } from "./PackageLikeController";
+export { default as PackageFavoritesController } from "./PackageFavoritesController";

@@ -46,10 +46,9 @@ export default async function (req, res) {
       info.country.currency = info.country.currency[0];
       info.info.otp_expiresIn = moment().add(15, "minutes").format();
       const AuthInfo: any = await RegisterAuthInfo(Auth);
-      console.log(AuthInfo);
       info.info.auth_id = AuthInfo._id;
       const UInfo: any = await AddVendor(info);
-      res.status(404).send(UInfo);
+      res.send(UInfo);
     }
   } catch (error) {
     console.log(error);

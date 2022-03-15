@@ -60,6 +60,8 @@ export interface IPackageModel {
   status: number;
   name: string;
   _id: string;
+  favorites: string[];
+  likes: string[];
 }
 
 export interface IAdminComments {

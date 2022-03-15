@@ -40,6 +40,8 @@ export const PackageSchema = new mongoose.Schema({
   status: Number,
   seller: String,
   images: Array,
+  favorites: Array,
+  likes: Array,
 });
 
 export const PackageOrderSchema = new mongoose.Schema({

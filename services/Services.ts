@@ -246,3 +246,45 @@ export function GetPackageById(id: string) {
     }
   });
 }
+
+export function PackageLike(info: { id: string; likes: string[] }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      PackageModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            likes: info.likes,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function PackageFavorites(info: { id: string; favorites: string[] }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      PackageModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            favorites: info.favorites,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

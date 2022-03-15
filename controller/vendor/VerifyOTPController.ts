@@ -4,7 +4,6 @@ import { GetVendorByEmail, OTPApproved } from "../../services/VendorServices";
 export default async function (req, res) {
   try {
     const info: any = req.body;
-    console.log(info);
     const auth: any = await GetAuthById(info.auth_id);
     if (!auth) {
       res.status(404).send("Acccess Denied");
@@ -13,8 +12,7 @@ export default async function (req, res) {
       if (match) {
         await OTPApproved({ email: info?.email });
         await OTPAccepted({ id: info.auth_id });
-        const vendorInfo: any = await GetVendorByEmail(info.email);
-        res.send(vendorInfo);
+        res.send(await GetVendorByEmail({ email: info.email }));
       } else {
         res.status(404).send("Invalid OTP Code");
       }

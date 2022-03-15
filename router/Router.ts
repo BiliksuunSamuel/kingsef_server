@@ -19,6 +19,8 @@ import {
   GetProductsController,
   GetVendorsController,
   LoginController,
+  PackageLikesController,
+  PackageFavoritesController,
 } from "../controller/controllers";
 import {
   AddAdminCommentsController,
@@ -47,4 +49,6 @@ router.post(Routes.package_order_add, AddPackageOrderController);
 router.post(Routes.package_order_get, GetPackageOrdersController);
 router.post(Routes.admin_comments_add, AddAdminCommentsController);
 router.post(Routes.admin_comments_get, GetAdminCommentsController);
+router.post(Routes.package_like, PackageLikesController);
+router.post(Routes.package_favorite, PackageFavoritesController);
 export default router;
