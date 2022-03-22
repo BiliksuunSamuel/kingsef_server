@@ -7,3 +7,6 @@ export { default as LoginController } from "./LoginController";
 export { default as GetVendorsController } from "./GetVendorsController";
 export { default as PackageLikesController } from "./PackageLikeController";
 export { default as PackageFavoritesController } from "./PackageFavoritesController";
+export { default as PlaceOrderController } from "./PlaceOrderController";
+export { default as UpdateOrderInfoController } from "./UpdarteOrderInfoController";
+export { default as GetOrdersController } from "./GetOrdersController";

@@ -23,4 +23,7 @@ export enum Routes {
   admin_comments_remove = "/api/admin/comments/remove",
   package_like = "/api/package/like",
   package_favorite = "/api/package/favorite",
+  order_place = "/api/order/place",
+  order_update = "/api/order/update",
+  orders_get = "/api/orders/get",
 }

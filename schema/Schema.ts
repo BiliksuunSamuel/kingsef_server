@@ -62,3 +62,28 @@ export const AdminCommentsSchema = new mongoose.Schema({
   sender: String,
   date_added: String,
 });
+
+export const HelpCenterChatSchema = new mongoose.Schema({
+  message: String,
+  seen: Array,
+  time: String,
+  copied_text: String,
+  sender: String,
+  receiver: String,
+  deleted: Boolean,
+  ref: String,
+  chat_id: String,
+  sent: Boolean,
+  id: String,
+});
+
+export const OrderSchema = new mongoose.Schema({
+  date: String,
+  amount: String,
+  content: Array,
+  buyer: String,
+  buyer_response: Object,
+  delivery_response: Object,
+  status: Object,
+  billing: Object,
+});

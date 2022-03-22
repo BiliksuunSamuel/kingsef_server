@@ -72,3 +72,37 @@ export interface IAdminComments {
   sender: string;
   date_added: string;
 }
+
+export interface IOrderInfo {
+  date: string;
+  amount: string;
+  content: IOrderContentItem[];
+  buyer: string;
+  buyer_response: {
+    accepted: boolean;
+    like: string[];
+    suggestion: string;
+    date_accepted: string;
+    comment: string;
+  };
+  delivery_response: {
+    delivered: boolean;
+    date_delivered: string;
+    address: string;
+  };
+  status: {
+    approved: boolean;
+    processed: number;
+    declined: boolean;
+  };
+  billing: {
+    email: string;
+    name: string;
+  };
+}
+export interface IOrderContentItem {
+  qnty: number;
+  cost: number;
+  id: string;
+  seller: string;
+}

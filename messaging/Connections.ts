@@ -1,9 +1,7 @@
 import { IConnectedUser } from "./interface/IMessaging";
 
-let ConnectedUsers: IConnectedUser[] = [];
+const ConnectedUsers: IConnectedUser[] = [];
 
-export function SetConnectedUsers(data: IConnectedUser[]) {
-  ConnectedUsers = data;
-}
+export function UpdateConnectedUsers(users: IConnectedUser[]) {}
 
 export default ConnectedUsers;

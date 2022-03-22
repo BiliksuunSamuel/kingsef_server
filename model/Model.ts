@@ -4,7 +4,9 @@ import {
   AdvertSchema,
   DeliverPricingSchema,
   DisplayCatSchema,
+  HelpCenterChatSchema,
   NotificationSchema,
+  OrderSchema,
   PackageOrderSchema,
   PackageSchema,
   ReviewsSchema,
@@ -35,3 +37,10 @@ export const AdminCommentsModel = mongoose.model(
   "admin_comment",
   AdminCommentsSchema
 );
+
+export const HelpCenterChatModel = mongoose.model(
+  "help_center_chat",
+  HelpCenterChatSchema
+);
+
+export const OrderModel = mongoose.model("order", OrderSchema);

@@ -1,5 +1,5 @@
 import moment from "moment";
-import ConnectedUsers, { SetConnectedUsers } from "./Connections";
+import ConnectedUsers, { UpdateConnectedUsers } from "./Connections";
 import { IConnectedUser } from "./interface/IMessaging";
 
 export function AddNewConnection(info: IConnectedUser) {
@@ -8,22 +8,19 @@ export function AddNewConnection(info: IConnectedUser) {
     ConnectedUsers.push(info);
     return ConnectedUsers;
   } else {
-    ConnectedUsers.map((con) => {
+    const connectedUsers = ConnectedUsers.map((con) => {
       if (con.id === info.id) {
-        con.online = true;
-        con.last_seen = moment().format();
+        return { ...con, online: true, last_seen: moment().format() };
+      } else {
+        return con;
       }
     });
+    UpdateConnectedUsers(connectedUsers);
     return ConnectedUsers;
   }
 }
 
-export function PrepareConnectionInfo(info: {
-  name: string;
-  socket: string;
-  id: string;
-  type: string;
-}) {
+export function PrepareConnectionInfo(info: IConnectedUser) {
   return <IConnectedUser>{
     ...info,
     online: true,

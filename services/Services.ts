@@ -2,6 +2,7 @@ import {
   AdvertModel,
   DeliveryPricingModel,
   DisplayCatModel,
+  HelpCenterChatModel,
   NotificationModel,
   PackageModel,
   PackageOrderModel,
@@ -276,6 +277,51 @@ export function PackageFavorites(info: { id: string; favorites: string[] }) {
         {
           $set: {
             favorites: info.favorites,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function SaveHelpCenterChat(info: any) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const Info = new HelpCenterChatModel(info);
+      Info.save(resolve(Info));
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function GetHelpCenterChats() {
+  return new Promise(function (resolve, reject) {
+    try {
+      HelpCenterChatModel.find((error, results) => {
+        error && reject(error);
+        resolve(results);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function DeleteHelpCenterMessage(info: { id: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      HelpCenterChatModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            deleted: true,
           },
         },
         (error) => {
