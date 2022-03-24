@@ -21,6 +21,8 @@ export const ProductSchema = new mongoose.Schema({
   variable: Array,
   merit: Number,
   country_code: String,
+  favorites: String,
+  available: Boolean,
 });
 
 export const CategorySchema = new mongoose.Schema({

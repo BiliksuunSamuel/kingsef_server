@@ -37,6 +37,8 @@ export interface IProductInfo {
   variable: { id: string; title: string; value: string }[];
   merit: number;
   country_code: string;
+  favorites: string[];
+  available: boolean;
 }
 
 export interface INewProductInfo {

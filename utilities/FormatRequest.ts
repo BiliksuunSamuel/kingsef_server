@@ -68,6 +68,8 @@ export function PrepareNewProductInfo(
     merit: 0,
     type: info.type,
     country_code: info?.country_code,
+    favorites: [],
+    available: true,
   };
   return Info;
 }

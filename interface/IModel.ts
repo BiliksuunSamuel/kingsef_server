@@ -75,7 +75,7 @@ export interface IAdminComments {
 
 export interface IOrderInfo {
   date: string;
-  amount: string;
+  amount: number;
   content: IOrderContentItem[];
   buyer: string;
   buyer_response: {
@@ -85,7 +85,7 @@ export interface IOrderInfo {
     date_accepted: string;
     comment: string;
   };
-  delivery_response: {
+  delivery: {
     delivered: boolean;
     date_delivered: string;
     address: string;
@@ -99,6 +99,13 @@ export interface IOrderInfo {
     email: string;
     name: string;
   };
+  currency: string;
+  cart: string[];
+  ratings: {
+    raters: string[];
+    values: { id: string; score: number }[];
+  };
+  reference: string;
 }
 export interface IOrderContentItem {
   qnty: number;

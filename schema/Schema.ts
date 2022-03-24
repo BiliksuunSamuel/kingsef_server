@@ -19,6 +19,7 @@ export const NotificationSchema = new mongoose.Schema({
 
 export const AdvertSchema = new mongoose.Schema({
   path: String,
+  access: Object,
 });
 
 export const ReviewsSchema = new mongoose.Schema({
@@ -83,7 +84,11 @@ export const OrderSchema = new mongoose.Schema({
   content: Array,
   buyer: String,
   buyer_response: Object,
-  delivery_response: Object,
+  delivery: Object,
   status: Object,
   billing: Object,
+  ratings: Object,
+  cart: Array,
+  currency: String,
+  reference: String,
 });
