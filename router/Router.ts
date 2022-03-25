@@ -37,6 +37,9 @@ import {
 import { Routes } from "../routes/Routes";
 
 const router = express.Router();
+router.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 router.post(Routes.category_add, AddCategoryController);
 router.post(Routes.categories_get, GetCategoriesController);
