@@ -107,6 +107,7 @@ function HtmlTemplate(info: {
         background-color: #fefefe;
         max-width: 400px;
         overflow: hidden;
+        min-width:100%;
       }
       .header {
         padding: 10px;
@@ -175,6 +176,10 @@ function HtmlTemplate(info: {
         box-shadow: 2px 2px 2px #f3f3f3;
         border-radius: 0px;
         padding: 8px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:flex-start
       }
       .item_data {
         padding: 10px 0;
