@@ -91,4 +91,7 @@ export const OrderSchema = new mongoose.Schema({
   cart: Array,
   currency: String,
   reference: String,
+  sellers: Array,
+  delivery_cost: Number,
+  currency_symbol: String,
 });

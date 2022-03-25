@@ -26,4 +26,7 @@ export enum Routes {
   order_place = "/api/order/place",
   order_update = "/api/order/update",
   orders_get = "/api/orders/get",
+  rate_vendor = "/api/vendor/profile/rate",
+  follow_unfollow_vendor = "/api/vendor/follow_unfollow",
+  favorite_product = "/api/kinsef/product/favorite",
 }

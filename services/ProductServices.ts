@@ -99,3 +99,25 @@ export function DeclineProduct(info: { id: string }) {
     }
   });
 }
+
+///MAKE PRODUCT FAVORITE
+export function MakeProductFavorite(info: { id: string; favorites: string[] }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      ProductInfoModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            favorites: info.favorites,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

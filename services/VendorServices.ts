@@ -120,3 +120,48 @@ export function AccountStatus(info: { id: string; status: string }) {
     }
   });
 }
+
+export function RateVendor(info: { id: string; rate: any }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      VendorInfoModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            "info.ratings": info.rate,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function FollowUnfollowVendor(info: {
+  id: string;
+  followers: string[];
+}) {
+  return new Promise(function (resolve, reject) {
+    try {
+      VendorInfoModel.updateOne(
+        { _id: info.id },
+        {
+          $set: {
+            "info.followers": info.followers,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

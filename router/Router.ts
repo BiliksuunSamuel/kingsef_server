@@ -25,10 +25,15 @@ import {
   GetOrdersController,
   UpdateOrderInfoController,
 } from "../controller/controllers";
+import { FavoriteProductController } from "../controller/products";
 import {
   AddAdminCommentsController,
   GetAdminCommentsController,
 } from "../controller/Reviews";
+import {
+  FollowUnFollowVendorController,
+  RateVendorController,
+} from "../controller/vendor";
 import { Routes } from "../routes/Routes";
 
 const router = express.Router();
@@ -57,4 +62,7 @@ router.post(Routes.package_favorite, PackageFavoritesController);
 router.post(Routes.order_place, PlaceOrderController);
 router.post(Routes.orders_get, GetOrdersController);
 router.post(Routes.order_update, UpdateOrderInfoController);
+router.post(Routes.rate_vendor, RateVendorController);
+router.post(Routes.follow_unfollow_vendor, FollowUnFollowVendorController);
+router.post(Routes.favorite_product, FavoriteProductController);
 export default router;

@@ -98,6 +98,7 @@ export interface IOrderInfo {
   billing: {
     email: string;
     name: string;
+    phone: string;
   };
   currency: string;
   cart: string[];
@@ -106,6 +107,9 @@ export interface IOrderInfo {
     values: { id: string; score: number }[];
   };
   reference: string;
+  sellers: string[];
+  delivery_cost: number;
+  currency_symbol: string;
 }
 export interface IOrderContentItem {
   qnty: number;

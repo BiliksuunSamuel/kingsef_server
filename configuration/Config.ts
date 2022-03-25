@@ -6,12 +6,12 @@ export const connectionString =
 
 const transporter = nodeMailer.createTransport({
   port: 465,
+  secure: process.env.NODE_ENV !== "development",
   host: process.env.mail_host,
   auth: {
     user: process.env.user,
     pass: process.env.pass,
   },
-  secure: true,
 });
 
 export default transporter;

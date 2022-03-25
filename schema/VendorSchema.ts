@@ -10,6 +10,7 @@ export const VendorSchema = new mongoose.Schema({
     authenticated: Boolean,
     otp_expiresIn: String,
     ratings: Object,
+    followers: Array,
   },
   country: {
     state_region: Object,
