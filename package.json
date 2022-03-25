@@ -2,9 +2,10 @@
   "name": "kingsef",
   "version": "1.0.0",
   "description": "express server for kingsef ecommerce website",
-  "main": "./src/server.ts",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "ts-node ./src/server.ts"
+    "start": "node dist/server.js",
+    "build": "tsc"
   },
   "author": "bhills",
   "license": "MIT",
