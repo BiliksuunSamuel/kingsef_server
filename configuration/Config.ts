@@ -2,7 +2,8 @@ export const Db_URL = "mongodb://localhost:27017/kinsef";
 import nodeMailer from "nodemailer";
 
 export const connectionString =
-  "mongodb+srv://samuelbills:<password>@cluster0.nakki.mongodb.net/test";
+  "mongodb+srv://samuelbills:77045109@cluster0.nakki.mongodb.net/kinsef";
+// Db_URL;
 
 const transporter = nodeMailer.createTransport({
   port: 465,

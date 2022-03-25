@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { Db_URL } from "../configuration/Config";
+import { connectionString, Db_URL } from "../configuration/Config";
 
-const connection = mongoose.connect(Db_URL, (error) => {
+const connection = mongoose.connect(connectionString, (error) => {
   if (error) {
     console.log(error.message);
     return;
