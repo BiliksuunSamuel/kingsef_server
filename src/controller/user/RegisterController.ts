@@ -1,11 +1,7 @@
 import moment from "moment";
 import OTP from "otp-client";
 import { GenerateOTP } from "../../functions/functions";
-import {
-  GetAuthByEmail,
-  GetAuthById,
-  RegisterAuthInfo,
-} from "../../services/AuthServices";
+import { RegisterAuthInfo } from "../../services/AuthServices";
 import {
   PrepareEmail,
   PrepareMessage,

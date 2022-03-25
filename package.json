@@ -4,7 +4,7 @@
   "description": "express server for kingsef ecommerce website",
   "main": "server.js",
   "scripts": {
-    "start": "ts-node server.ts"
+    "start": "ts-node src/server.ts"
   },
   "author": "bhills",
   "license": "MIT",
@@ -24,7 +24,6 @@
     "nodemailer": "^6.7.2",
     "nodemailer-juice": "^1.0.1",
     "nodemon": "^2.0.15",
-    "otp-client": "^1.0.3",
     "path": "^0.12.7",
     "socket.io": "^4.4.1",
     "ts-node": "^10.7.0",
@@ -43,6 +42,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/nodemailer": "^6.4.4",
     "@types/socket.io": "^3.0.2",
-    "@types/uuid": "^8.3.4"
+    "@types/uuid": "^8.3.4",
+    "otp-client": "^1.0.3"
   }
 }
