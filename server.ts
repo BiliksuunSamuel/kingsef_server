@@ -10,7 +10,7 @@ import SocketConnection from "./messaging/SocketConnection";
 const port = process.env.PORT || process.env.port;
 const app = express();
 const server = http.createServer(app);
-const io = new socketIo.Server(server);
+// const io = new socketIo.Server(server);
 // SocketConnection(io);
 app.use(cors());
 app.use(express.json({ limit: "100mb" }));
