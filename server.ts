@@ -11,7 +11,7 @@ const port = process.env.PORT || process.env.port;
 const app = express();
 const server = http.createServer(app);
 const io = new socketIo.Server(server);
-SocketConnection(io);
+// SocketConnection(io);
 app.use(cors());
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: false, limit: "100mb" }));
