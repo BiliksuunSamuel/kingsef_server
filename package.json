@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "tsc",
-    "preinstall": "tsc"
+    "build": "tsc"
   },
   "author": "bhills",
   "license": "MIT",
@@ -22,8 +21,7 @@
     "express-fileupload": "^1.2.1",
     "http": "^0.0.1-security",
     "moment": "^2.29.1",
-    "mongoose": "^6.1.4",
-    "multer": "^1.4.4",
+    "mongoose": "^6.2.8",
     "nodemailer": "^6.7.2",
     "nodemailer-juice": "^1.0.1",
     "nodemon": "^2.0.15",
@@ -44,7 +42,6 @@
     "@types/express": "^4.17.13",
     "@types/moment": "^2.13.0",
     "@types/mongoose": "^5.11.97",
-    "@types/multer": "^1.4.7",
     "@types/nodemailer": "^6.4.4",
     "@types/socket.io": "^3.0.2",
     "@types/uuid": "^8.3.4"
