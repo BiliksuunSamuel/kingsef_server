@@ -4,7 +4,9 @@
   "description": "express server for kingsef ecommerce website",
   "main": "dist/server.js",
   "scripts": {
-    "start": "ts-node server.ts"
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "preinstall": "tsc"
   },
   "author": "bhills",
   "license": "MIT",
@@ -27,6 +29,7 @@
     "path": "^0.12.7",
     "socket.io": "^4.4.1",
     "ts-node": "^10.7.0",
+    "typescript": "^4.6.3",
     "uuid": "^8.3.2"
   },
   "engines": {

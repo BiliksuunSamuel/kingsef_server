@@ -10,6 +10,5 @@
     "sourceMap": false,
     "baseUrl": "."
   },
-  "include": ["src"],
   "exclude": ["node_modules", ".vscode"]
 }
