@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "tsc",
-    "postinstall": "tsc"
+    "build": "tsc"
   },
   "author": "bhills",
   "license": "MIT",
