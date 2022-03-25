@@ -1,4 +1,4 @@
-import { GenerateOTP } from "../../functions/functions";
+import { GenerateOTP } from "../../functions/Functions";
 import { RegisterAuthInfo } from "../../services/AuthServices";
 import { HashPassword } from "../../utilities/HandlePassword";
 import {

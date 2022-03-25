@@ -1,6 +1,6 @@
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
-import { WriteBase64File } from "../../functions/functions";
+import { WriteBase64File } from "../../functions/Functions";
 import { AddPackage, GetPackages } from "../../services/Services";
 export default async function AddPackageController(req, res) {
   try {

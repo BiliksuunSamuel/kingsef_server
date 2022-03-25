@@ -1,4 +1,4 @@
-import { WriteBase64File } from "../../functions/functions";
+import { WriteBase64File } from "../../functions/Functions";
 import { v4 as uuidv4 } from "uuid";
 import { AddDisplayCat, GetDisplayCats } from "../../services/Services";
 

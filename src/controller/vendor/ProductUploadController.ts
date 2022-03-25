@@ -1,4 +1,4 @@
-import { WriteBase64File } from "../../functions/functions";
+import { WriteBase64File } from "../../functions/Functions";
 import { INewProductInfo } from "../../interface/IProduct";
 import { PrepareNewProductInfo } from "../../utilities/FormatRequest";
 import { v4 as uuid } from "uuid";

@@ -1,5 +1,5 @@
 import moment from "moment";
-import { GenerateOTP } from "../../functions/functions";
+import { GenerateOTP } from "../../functions/Functions";
 import { IOrderContentItem, IOrderInfo } from "../../interface/IModel";
 import { OrderPlacementEmailMessage } from "../../services/EmailServices";
 import { AddOrder, GetOrders } from "../../services/OrderServices";
