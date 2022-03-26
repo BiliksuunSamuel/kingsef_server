@@ -1,6 +1,5 @@
 import OTP from "otp-client";
 import fs from "fs";
-import path, { dirname } from "path";
 
 export function GenerateOTP(): string {
   const secret = "TPQDAHVBZ5NBO5LFEQKC7V7UPATSSMFY";
@@ -24,7 +23,7 @@ export function WriteBase64File(base64Data: any, id: any) {
     try {
       const fname = id + Date.now().toString() + `.jpg`;
       fs.writeFile(
-        dirname("products/") + fname,
+        "./public/products/" + fname,
         base64Data,
         "base64",
         function (error) {
