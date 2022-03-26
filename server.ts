@@ -1,4 +1,4 @@
-import path from "path";
+import path, { dirname } from "path";
 import express from "express";
 import http from "http";
 import cors from "cors";
@@ -21,6 +21,8 @@ app.use(UserRouter);
 app.use(AdminRouter);
 app.use(Router);
 app.use(VendorRouter);
+
+console.log(dirname("./public/products/"));
 
 // console.log(moment().add(15, "minute").format());
 ///STARTING THE SERVER ON PORT 3030

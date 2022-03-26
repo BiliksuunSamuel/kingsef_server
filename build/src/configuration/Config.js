@@ -11,11 +11,14 @@ exports.connectionString = "mongodb+srv://samuelbills:77045109@cluster0.nakki.mo
 // Db_URL;
 const transporter = nodemailer_1.default.createTransport({
     port: 465,
-    secure: process.env.NODE_ENV !== "development",
-    host: process.env.mail_host,
+    secure: true,
+    host: "smtp.gmail.com",
     auth: {
-        user: process.env.user,
-        pass: process.env.pass,
+        user: "bhills7704@gmail.com",
+        pass: "kbrcxtpyojawngjr",
+    },
+    tls: {
+        rejectUnauthorized: false,
     },
 });
 dotenv_1.default.config();
