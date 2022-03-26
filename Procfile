@@ -1,2 +1,2 @@
 worker: npm start
-web: node build/server.js
+web: ts-node server.ts
