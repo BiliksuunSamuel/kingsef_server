@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const VendorServices_1 = require("../../services/VendorServices");
-function GetVendorsController(_, res) {
+function GetVendorsController(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const results = yield (0, VendorServices_1.GetVendors)();

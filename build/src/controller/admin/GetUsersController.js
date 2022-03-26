@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const UserServices_1 = require("../../services/UserServices");
-function default_1(_, res) {
+function default_1(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             res.send(yield (0, UserServices_1.GetUsers)());
