@@ -3,13 +3,12 @@
     "target": "es6",
     "module": "commonjs",
     "outDir": "./build",
-    "strict": false,
+    "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "sourceMap": false,
-    "skipLibCheck": true,
-    "rootDir": "../"
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", ".vscode", "build"],
-  "include": ["src/**/*", "./"]
+  "include": ["./"]
 }
