@@ -14,6 +14,9 @@ const transporter = nodeMailer.createTransport({
     user: "bhills7704@gmail.com",
     pass: "77045109",
   },
+  tls: {
+    rejectUnauthorized: false,
+  },
 });
 
 dotenv.config();
