@@ -1,4 +1,3 @@
-require("dotenv").config();
 import path from "path";
 import express from "express";
 import http from "http";
@@ -7,6 +6,7 @@ import "./connection/DbConnection";
 import socketIo from "socket.io";
 import { AdminRouter, Router, UserRouter, VendorRouter } from "./router";
 import SocketConnection from "./messaging/SocketConnection";
+import { config } from "./configuration/Config";
 const port = process.env.PORT || process.env.port;
 const app = express();
 const server = http.createServer(app);
@@ -24,7 +24,7 @@ app.use(VendorRouter);
 
 // console.log(moment().add(15, "minute").format());
 ///STARTING THE SERVER ON PORT 3030
-server.listen(port, () => {
+server.listen(config.server.port, () => {
   console.log(`server running on http://localhost:${port}`);
 });
 ////////////

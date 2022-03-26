@@ -1,5 +1,6 @@
 export const Db_URL = "mongodb://localhost:27017/kinsef";
 import nodeMailer from "nodemailer";
+import dotenv from "dotenv";
 
 export const connectionString =
   "mongodb+srv://samuelbills:77045109@cluster0.nakki.mongodb.net/kinsef";
@@ -14,5 +15,15 @@ const transporter = nodeMailer.createTransport({
     pass: process.env.pass,
   },
 });
+
+dotenv.config();
+
+const port = process.env.PORT || process.env.port;
+
+export const config = {
+  server: {
+    port,
+  },
+};
 
 export default transporter;
