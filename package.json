@@ -2,9 +2,9 @@
   "name": "kingsef",
   "version": "1.0.0",
   "description": "express server for kingsef ecommerce website",
-  "main": "dist/src/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node dist/src/server.js",
+    "start": "node build/src/server.js",
     "build": "tsc",
     "postinstall": "tsc"
   },
