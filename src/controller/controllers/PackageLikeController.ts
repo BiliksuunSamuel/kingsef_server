@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import { GetPackages, PackageLike } from "../../services/Services";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const info = req.body;
     await PackageLike(info);

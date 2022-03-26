@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 import moment from "moment";
 import { GenerateOTP } from "../../functions/Functions";
 import { RegisterAuthInfo } from "../../services/AuthServices";
@@ -9,7 +10,7 @@ import {
 import { RegisterUser } from "../../services/UserServices";
 import { HashPassword } from "../../utilities/HandlePassword";
 
-export default async function RegisterController(req, res) {
+export default async function RegisterController(req: Request, res: Response) {
   try {
     const data: any = req.body;
 

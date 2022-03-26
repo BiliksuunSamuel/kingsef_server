@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 import moment from "moment";
 import { INotificationInfo } from "../../interface/IModel";
 import {
@@ -7,7 +8,10 @@ import {
 } from "../../services/ProductServices";
 import { AddNotification } from "../../services/Services";
 
-export default async function ProductApproveDeclineController(req, res) {
+export default async function ProductApproveDeclineController(
+  req: Request,
+  res: Response
+) {
   try {
     const info = req.body;
     if (info.approve) {

@@ -8,8 +8,9 @@ import {
 } from "../../services/EmailServices";
 import { AddVendor, GetVendorByEmail } from "../../services/VendorServices";
 import moment from "moment";
+import { Request, Response } from "express";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const data = req.body;
     const info = {

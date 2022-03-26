@@ -1,9 +1,10 @@
+import { Request, Response } from "express";
 import {
   GetProducts,
   MakeProductFavorite,
 } from "../../services/ProductServices";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const info: { id: string; favorites: string[] } = req.body;
     await MakeProductFavorite(info);

@@ -1,11 +1,12 @@
 import { info } from "console";
+import { Request, Response } from "express";
 import { userInfo } from "os";
 import { GetAuthByEmail, GetAuthById } from "../../services/AuthServices";
 import { GetUserByEmail } from "../../services/UserServices";
 import { GetVendorByEmail } from "../../services/VendorServices";
 import { VerifyPassword } from "../../utilities/HandlePassword";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const data: { email: string; password: string } = req.body;
     const VendorInfo: any = await GetVendorByEmail({ email: data.email });

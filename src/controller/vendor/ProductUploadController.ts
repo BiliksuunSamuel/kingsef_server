@@ -3,7 +3,8 @@ import { INewProductInfo } from "../../interface/IProduct";
 import { PrepareNewProductInfo } from "../../utilities/FormatRequest";
 import { v4 as uuid } from "uuid";
 import { AddNewProduct } from "../../services/ProductServices";
-export default async function (req, res) {
+import { Request, Response } from "express";
+export default async function (req: Request, res: Response) {
   try {
     const data: INewProductInfo[] = req.body;
     for (let i = 0; i < data.length; i++) {

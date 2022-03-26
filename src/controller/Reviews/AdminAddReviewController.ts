@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 import moment from "moment";
 import { IAdminComments } from "../../interface/IModel";
 import {
@@ -5,7 +6,10 @@ import {
   GetAdminComments,
 } from "../../services/ReviewServices";
 
-export default async function AdminAddCommentsController(req, res) {
+export default async function AdminAddCommentsController(
+  req: Request,
+  res: Response
+) {
   try {
     const info: IAdminComments = req.body;
     await AddAdminComment({ ...info, date_added: moment().format() });

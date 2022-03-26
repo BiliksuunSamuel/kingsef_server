@@ -1,4 +1,6 @@
-async function UserLogin(req, res) {
+import { Request, Response } from "express";
+
+async function UserLogin(req: Request, res: Response) {
   try {
     console.log(req.body);
   } catch (error) {

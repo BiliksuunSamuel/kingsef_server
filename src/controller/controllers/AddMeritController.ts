@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import { IMerit } from "../../interface/IModel";
 import { AddMerit, GetMerits } from "../../services/ModelServices";
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const info: IMerit = req.body;
     await AddMerit({ title: info.title, value: info.value });

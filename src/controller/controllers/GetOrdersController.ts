@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import { GetOrders } from "../../services/OrderServices";
 
-export default async function GetOrdersController(req, res) {
+export default async function GetOrdersController(req: Request, res: Response) {
   try {
     res.send(await GetOrders());
   } catch (error) {

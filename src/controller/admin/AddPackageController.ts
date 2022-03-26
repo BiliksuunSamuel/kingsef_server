@@ -1,8 +1,12 @@
+import { Request, Response } from "express";
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
 import { WriteBase64File } from "../../functions/Functions";
 import { AddPackage, GetPackages } from "../../services/Services";
-export default async function AddPackageController(req, res) {
+export default async function AddPackageController(
+  req: Request,
+  res: Response
+) {
   try {
     const data = req.body;
     const Images: string[] = [];

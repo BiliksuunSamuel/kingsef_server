@@ -1,6 +1,10 @@
+import { Request, Response } from "express";
 import { GetAdverts } from "../../services/Services";
 
-export default async function GetAdvertsController(_, res) {
+export default async function GetAdvertsController(
+  req: Request,
+  res: Response
+) {
   try {
     const results = await GetAdverts();
     res.send(results);

@@ -9,7 +9,8 @@ import {
   ResendOTP as InfoResendOTP,
 } from "../../services/VendorServices";
 import { ResendOTP } from "../../services/AuthServices";
-export default async function (req, res) {
+import { Request, Response } from "express";
+export default async function (req: Request, res: Response) {
   try {
     const info = req.body;
     console.log(info);

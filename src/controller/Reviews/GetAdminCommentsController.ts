@@ -1,6 +1,10 @@
+import { Request, Response } from "express";
 import { GetAdminComments } from "../../services/ReviewServices";
 
-export default async function GetAdminCommentsController(req, res) {
+export default async function GetAdminCommentsController(
+  req: Request,
+  res: Response
+) {
   try {
     res.send(await GetAdminComments());
   } catch (error) {

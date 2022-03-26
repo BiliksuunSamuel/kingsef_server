@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 import moment from "moment";
 import { IPackageModel, IPackageOrder } from "../../interface/IModel";
 import {
@@ -6,7 +7,7 @@ import {
   UpdatePackageQuantity,
 } from "../../services/Services";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const info: IPackageOrder = req.body;
     const Info = {

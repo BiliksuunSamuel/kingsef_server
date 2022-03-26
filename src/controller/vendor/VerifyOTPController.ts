@@ -1,7 +1,8 @@
+import { Request, Response } from "express";
 import { GetAuthById, OTPAccepted } from "../../services/AuthServices";
 import { GetVendorByEmail, OTPApproved } from "../../services/VendorServices";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const info: any = req.body;
     const auth: any = await GetAuthById(info.auth_id);

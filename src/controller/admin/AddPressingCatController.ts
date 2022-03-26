@@ -1,8 +1,9 @@
 import { WriteBase64File } from "../../functions/Functions";
 import { v4 as uuidv4 } from "uuid";
 import { AddDisplayCat, GetDisplayCats } from "../../services/Services";
+import { Request, Response } from "express";
 
-export default async function (req, res) {
+export default async function (req: Request, res: Response) {
   try {
     const data = req.body;
     const info: { cat_ref: string; image: any } = {

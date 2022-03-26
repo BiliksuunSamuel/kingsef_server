@@ -9,7 +9,8 @@ import {
   ResendOTP as UserResendOTP,
 } from "../../services/UserServices";
 import { ResendOTP } from "../../services/AuthServices";
-export default async function (req, res) {
+import { Request, Response } from "express";
+export default async function (req: Request, res: Response) {
   try {
     const info = req.body;
     const new_otp = await GenerateOTP();

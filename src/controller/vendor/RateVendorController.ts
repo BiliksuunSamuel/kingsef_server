@@ -1,6 +1,10 @@
+import { Request, Response } from "express";
 import { GetVendors, RateVendor } from "../../services/VendorServices";
 
-export default async function RateVendorController(req, res) {
+export default async function RateVendorController(
+  req: Request,
+  res: Response
+) {
   try {
     const info: {
       id: string;

@@ -1,10 +1,14 @@
+import { Request, Response } from "express";
 import {
   AddDeliveryPricing,
   GetDeliveryPricingByISOCode,
   GetDeliveryPricings,
 } from "../../services/Services";
 
-export default async function AddDeliveryPricingController(req, res) {
+export default async function AddDeliveryPricingController(
+  req: Request,
+  res: Response
+) {
   try {
     const data = req.body;
 

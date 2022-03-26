@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import { GetDeliveryPricings } from "../../services/Services";
 
-export default async function (_, res) {
+export default async function (req: Request, res: Response) {
   try {
     res.send(await GetDeliveryPricings());
   } catch (error) {
