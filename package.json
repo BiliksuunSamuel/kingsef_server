@@ -4,7 +4,7 @@
   "description": "express server for kingsef ecommerce website",
   "main": "./dist/server.js",
   "scripts": {
-    "start": "node ../../dist/server.js",
+    "start": "node dist/server.js",
     "build": "tsc"
   },
   "author": "bhills",
