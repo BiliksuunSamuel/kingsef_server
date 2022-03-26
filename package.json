@@ -4,9 +4,9 @@
   "description": "express server for kingsef ecommerce website",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc",
-    "preinstall": "tsc"
+    "start": "node ./dist/server.js",
+    "build": "ng build",
+    "heroku-postbuild": "ng build --prod"
   },
   "author": "bhills",
   "license": "MIT",
