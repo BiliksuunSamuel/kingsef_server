@@ -1,16 +1,21 @@
-import OTP from "otp-client";
+import OTP from "otp-generator";
 import fs from "fs";
-export function GenerateOTP(): string {
-  const secret = "TPQDAHVBZ5NBO5LFEQKC7V7UPATSSMFY";
-  const options = {
-    algorithm: "sha256",
-    digits: 6,
-    period: 20,
-  };
 
-  const otp = new OTP(secret, options);
-  const token = otp.getToken(); // e.g. 74837433
-  return token;
+export function GenerateOTP(): string {
+  // const secret = "TPQDAHVBZ5NBO5LFEQKC7V7UPATSSMFY";
+  // const options = {
+  //   algorithm: "sha256",
+  //   digits: 6,
+  //   period: 20,
+  // };
+  // const otp = new OTP(secret, options);
+  // const token = otp.getToken(); // e.g. 74837433
+  // return token;
+  return OTP.generate(6, {
+    upperCaseAlphabets: false,
+    specialChars: false,
+    digits: true,
+  });
 }
 
 export function WriteBase64File(base64Data: any, id: any) {
