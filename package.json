@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node ./dist/server.js",
-    "build": "ng build"
+    "build": "tsc"
   },
   "author": "bhills",
   "license": "MIT",
