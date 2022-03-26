@@ -24,7 +24,7 @@ export function WriteBase64File(base64Data: any, id: any) {
     try {
       const fname = id + Date.now().toString() + `.jpg`;
       fs.writeFile(
-        dirname("./public") + "/products/" + fname,
+        dirname("products/") + fname,
         base64Data,
         "base64",
         function (error) {
