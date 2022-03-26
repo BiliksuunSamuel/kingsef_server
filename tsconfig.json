@@ -7,8 +7,9 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "sourceMap": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "rootDir": "./"
   },
-  "exclude": ["node_modules", ".vscode"],
-  "include": ["src/**/*"]
+  "exclude": ["node_modules", ".vscode", "build"],
+  "include": ["src/**/*", "./"]
 }
