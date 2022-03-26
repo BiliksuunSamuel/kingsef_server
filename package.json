@@ -26,6 +26,7 @@
     "nodemailer": "^6.7.2",
     "nodemailer-juice": "^1.0.1",
     "nodemon": "^2.0.15",
+    "otp-client": "^1.0.3",
     "otp-generator": "^4.0.0",
     "path": "^0.12.7",
     "socket.io": "^4.4.1",
