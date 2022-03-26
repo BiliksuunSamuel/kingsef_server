@@ -8,7 +8,7 @@ export const connectionString =
 
 const transporter = nodeMailer.createTransport({
   port: 465,
-  secure: process.env.NODE_ENV !== "development",
+  secure: true,
   host: "smtp.gmail.com",
   auth: {
     user: "bhills7704@gmail.com",
