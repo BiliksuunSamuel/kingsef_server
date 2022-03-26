@@ -5,8 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node ./dist/server.js",
-    "build": "ng build",
-    "heroku-postbuild": "ng build --prod"
+    "build": "ng build"
   },
   "author": "bhills",
   "license": "MIT",
