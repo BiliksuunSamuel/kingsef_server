@@ -2,7 +2,7 @@
   "name": "kingsef",
   "version": "1.0.0",
   "description": "express server for kingsef ecommerce website",
-  "main": "dist/server.js",
+  "main": "./dist/server.js",
   "scripts": {
     "start": "node ./dist/server.js",
     "build": "tsc"
