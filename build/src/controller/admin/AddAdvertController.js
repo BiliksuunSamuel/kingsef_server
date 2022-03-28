@@ -13,14 +13,17 @@ const uuid_1 = require("uuid");
 const Functions_1 = require("../../functions/Functions");
 const Services_1 = require("../../services/Services");
 function AddAdvertController(req, res) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = req.body;
-            for (let i = 0; i < data.length; i++) {
-                const banner = data[i];
-                const filename = yield (0, Functions_1.WriteBase64File)(banner === null || banner === void 0 ? void 0 : banner.data, (0, uuid_1.v4)());
-                yield (0, Services_1.AddAdvert)({ path: filename });
-            }
+            const advert_info = {
+                path: "",
+                access: data.access,
+            };
+            const filename = yield (0, Functions_1.WriteBase64File)((_a = data.image) === null || _a === void 0 ? void 0 : _a.data, (0, uuid_1.v4)());
+            advert_info.path = filename;
+            yield (0, Services_1.AddAdvert)(advert_info);
             res.send({
                 message: "Advertisement Added Successfull",
                 data: yield (0, Services_1.GetAdverts)(),

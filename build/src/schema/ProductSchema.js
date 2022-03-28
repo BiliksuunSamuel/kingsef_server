@@ -28,6 +28,7 @@ exports.ProductSchema = new mongoose_1.default.Schema({
     country_code: String,
     favorites: Array,
     available: Boolean,
+    details_listing: Array,
 });
 exports.CategorySchema = new mongoose_1.default.Schema({
     title: String,

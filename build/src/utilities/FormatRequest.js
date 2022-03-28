@@ -67,6 +67,7 @@ function PrepareNewProductInfo(info, image, gallery) {
         country_code: info === null || info === void 0 ? void 0 : info.country_code,
         favorites: [],
         available: true,
+        details_listing: info.details_listing,
     };
     return Info;
 }

@@ -27,7 +27,7 @@ function WriteBase64File(base64Data, id) {
     return new Promise(function (resolve, reject) {
         try {
             const fname = id + Date.now().toString() + `.jpg`;
-            fs_1.default.writeFile("./public/products/" + fname, base64Data, "base64", function (error) {
+            fs_1.default.writeFile("./src/public/products/" + fname, base64Data, "base64", function (error) {
                 if (error) {
                     reject(error);
                 }
