@@ -5,12 +5,22 @@ import { Request, Response } from "express";
 
 export default async function AddAdvertController(req: Request, res: Response) {
   try {
-    const data: any[] = req.body;
-    for (let i = 0; i < data.length; i++) {
-      const banner = data[i];
-      const filename = await WriteBase64File(banner?.data, uuidv4());
-      await AddAdvert({ path: filename });
-    }
+    const data: {
+      image: any;
+      path: string;
+      access: {
+        id: string;
+        ref: string;
+      };
+    } = req.body;
+    const advert_info: { path: string; access: { id: string; ref: string } } = {
+      path: "",
+      access: data.access,
+    };
+    const filename = <any>await WriteBase64File(data.image?.data, uuidv4());
+    advert_info.path = filename;
+    await AddAdvert(advert_info);
+
     res.send({
       message: "Advertisement Added Successfull",
       data: await GetAdverts(),

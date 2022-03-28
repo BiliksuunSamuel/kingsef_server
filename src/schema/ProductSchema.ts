@@ -23,6 +23,7 @@ export const ProductSchema = new mongoose.Schema({
   country_code: String,
   favorites: Array,
   available: Boolean,
+  details_listing: Array,
 });
 
 export const CategorySchema = new mongoose.Schema({

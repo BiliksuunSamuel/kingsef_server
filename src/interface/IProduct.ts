@@ -39,6 +39,7 @@ export interface IProductInfo {
   country_code: string;
   favorites: string[];
   available: boolean;
+  details_listing: { id: string; title: string; value: any }[];
 }
 
 export interface INewProductInfo {
@@ -64,4 +65,5 @@ export interface INewProductInfo {
   brands?: string;
   variable: { id: string; title: string; value: string }[];
   country_code: string;
+  details_listing: { id: string; title: string; value: any }[];
 }

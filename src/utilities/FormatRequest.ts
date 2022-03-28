@@ -70,6 +70,7 @@ export function PrepareNewProductInfo(
     country_code: info?.country_code,
     favorites: [],
     available: true,
+    details_listing: info.details_listing,
   };
   return Info;
 }
