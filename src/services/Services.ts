@@ -1,5 +1,7 @@
+import { IDebitPaymentInfo } from "../interface/IDebitsPaymentInfo";
 import {
   AdvertModel,
+  DebitsPaymentsModel,
   DeliveryPricingModel,
   DisplayCatModel,
   HelpCenterChatModel,
@@ -329,6 +331,31 @@ export function DeleteHelpCenterMessage(info: { id: string }) {
           resolve(true);
         }
       );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function AddDebitPayment(info: IDebitPaymentInfo) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const Info = new DebitsPaymentsModel(info);
+      Info.save();
+      resolve(Info);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function GetDebitsPayments() {
+  return new Promise(function (resolve, reject) {
+    try {
+      DebitsPaymentsModel.find((error, payments) => {
+        error && reject(error);
+        resolve(payments);
+      });
     } catch (error) {
       reject(error);
     }

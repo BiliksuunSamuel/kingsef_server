@@ -1,4 +1,5 @@
 import moment from "moment";
+import { IVendorInfo } from "../interface/IVendor";
 import { VendorInfoModel } from "../model/VendorModel";
 
 //add vendor
@@ -160,6 +161,45 @@ export function FollowUnfollowVendor(info: {
           resolve(true);
         }
       );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function UpdateProfile(info: IVendorInfo, id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      VendorInfoModel.updateOne({ _id: id }, { $set: { ...info } }, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
+
+export function GetVendorById(id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      VendorInfoModel.findOne({ _id: id }, (error, results) => {
+        error && reject(error);
+        resolve(results);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function UpdateAccountInfo(info: IVendorInfo, id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      VendorInfoModel.updateOne({ _id: id }, { $set: { ...info } }, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
     } catch (error) {
       reject(error);
     }

@@ -10,3 +10,5 @@ export { default as PackageFavoritesController } from "./PackageFavoritesControl
 export { default as PlaceOrderController } from "./PlaceOrderController";
 export { default as UpdateOrderInfoController } from "./UpdarteOrderInfoController";
 export { default as GetOrdersController } from "./GetOrdersController";
+export { default as UpdateProductInfoController } from "./UpdateProductInfoController";
+export { default as EnableDisasbleProductController } from "./DisableEnableProductControlller";

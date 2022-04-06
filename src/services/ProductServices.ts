@@ -1,3 +1,4 @@
+import { IProductInfo } from "../interface/IProduct";
 import { CategoryModel, ProductInfoModel } from "../model/productsModel";
 
 export function GetCategories() {
@@ -111,6 +112,46 @@ export function MakeProductFavorite(info: { id: string; favorites: string[] }) {
             favorites: info.favorites,
           },
         },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function UpdateProductInfo(info: IProductInfo, id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      ProductInfoModel.updateOne(
+        {
+          _id: id,
+        },
+        {
+          $set: {
+            ...info,
+          },
+        },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function EnableDisableProduct(info: IProductInfo, id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      ProductInfoModel.updateOne(
+        { _id: id },
+        { $set: { ...info } },
         (error) => {
           error && reject(error);
           resolve(true);

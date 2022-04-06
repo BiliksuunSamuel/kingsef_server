@@ -95,3 +95,12 @@ export const OrderSchema = new mongoose.Schema({
   delivery_cost: Number,
   currency_symbol: String,
 });
+
+export const DebitsPaymentsSchema = new mongoose.Schema({
+  date_paid: String,
+  amount: Number,
+  vendor: String,
+  reference: String,
+  account: Object,
+  currency: String,
+});

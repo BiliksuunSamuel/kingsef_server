@@ -1,7 +1,6 @@
-import { info } from "console";
 import { Request, Response } from "express";
-import { userInfo } from "os";
-import { GetAuthByEmail, GetAuthById } from "../../services/AuthServices";
+import { IUserAccountInfo } from "../../interface/IUserModel";
+import { GetAuthById } from "../../services/AuthServices";
 import { GetUserByEmail } from "../../services/UserServices";
 import { GetVendorByEmail } from "../../services/VendorServices";
 import { VerifyPassword } from "../../utilities/HandlePassword";
@@ -10,7 +9,7 @@ export default async function (req: Request, res: Response) {
   try {
     const data: { email: string; password: string } = req.body;
     const VendorInfo: any = await GetVendorByEmail({ email: data.email });
-    const UserInfo: any = await GetUserByEmail(data.email);
+    const UserInfo = <IUserAccountInfo>await GetUserByEmail(data.email);
 
     if (VendorInfo) {
       const AuthInfo: any = await GetAuthById(VendorInfo.info.auth_id);
@@ -20,11 +19,11 @@ export default async function (req: Request, res: Response) {
       } else {
         res.status(404).send("Incorrect Login Password");
       }
-    } else if (userInfo) {
+    } else if (UserInfo) {
       const AuthInfo: any = await GetAuthById(UserInfo.info.auth_id);
       const match = await VerifyPassword(data.password, AuthInfo.password);
       if (match) {
-        res.send({ vendor: null, user: userInfo });
+        res.send({ vendor: null, user: UserInfo });
       } else {
         res.status(404).send("Incorrect Login Password");
       }

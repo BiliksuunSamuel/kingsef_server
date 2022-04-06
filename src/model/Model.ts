@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import {
   AdminCommentsSchema,
   AdvertSchema,
+  DebitsPaymentsSchema,
   DeliverPricingSchema,
   DisplayCatSchema,
   HelpCenterChatSchema,
@@ -44,3 +45,8 @@ export const HelpCenterChatModel = mongoose.model(
 );
 
 export const OrderModel = mongoose.model("order", OrderSchema);
+
+export const DebitsPaymentsModel = mongoose.model(
+  "debits_payment",
+  DebitsPaymentsSchema
+);

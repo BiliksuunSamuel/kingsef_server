@@ -1,4 +1,5 @@
 import moment from "moment";
+import { IUserInfo } from "../interface/IUser";
 import { UserModel } from "../model/UserModel";
 import { TUpdateUserInfo } from "../types/UserTypes";
 
@@ -120,6 +121,19 @@ export function ResendOTP(email) {
       );
     } catch (error) {
       reject(error);
+    }
+  });
+}
+
+export function UpdateProfile(info: IUserInfo, id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      UserModel.updateOne({ _id: id }, { $set: { ...info } }, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
+    } catch (error) {
+      console.log(error);
     }
   });
 }

@@ -49,5 +49,11 @@ export default function SocketConnection(io: Server) {
     socket.on("admin-connected", () => {
       SocketOnAdminConnection(socket);
     });
+
+    socket.on("profile-update", (data, callback) => {
+      io.emit("profile-update", `${data.name} Updated Their Account Details`);
+      socket.removeListener("profile-update", () => {});
+      callback("sent");
+    });
   });
 }

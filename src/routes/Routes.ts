@@ -29,4 +29,10 @@ export enum Routes {
   rate_vendor = "/api/vendor/profile/rate",
   follow_unfollow_vendor = "/api/vendor/follow_unfollow",
   favorite_product = "/api/kinsef/product/favorite",
+  product_info_update = "/api/product_info_update",
+  enable_disable_product = "/api/enable/disable/product",
+  vendor_account_update = "/api/vendor/account/update",
+  user_account_update = "/api/user/account/update",
+  debits_payments_get = "/api/debits/payments/get",
+  debits_payments_add = "/api/debits/payments/add",
 }

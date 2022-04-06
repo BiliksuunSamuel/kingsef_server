@@ -1,8 +1,10 @@
 import express from "express";
 import {
+  AddDebitsPaymentsController,
   AddPackageController,
   AddPackageOrderController,
   AddPressingCatController,
+  GetDebitsPaymentsController,
   GetPackageController,
   GetPackageOrdersController,
   GetPressingCatsController,
@@ -24,6 +26,8 @@ import {
   PlaceOrderController,
   GetOrdersController,
   UpdateOrderInfoController,
+  UpdateProductInfoController,
+  EnableDisasbleProductController,
 } from "../controller/controllers";
 import { FavoriteProductController } from "../controller/products";
 import {
@@ -34,6 +38,7 @@ import {
   FollowUnFollowVendorController,
   RateVendorController,
 } from "../controller/vendor";
+import UpdateAccountInfoController from "../controller/vendor/UpdateAccountInfoController";
 import { Routes } from "../routes/Routes";
 
 const router = express.Router();
@@ -68,4 +73,9 @@ router.post(Routes.order_update, UpdateOrderInfoController);
 router.post(Routes.rate_vendor, RateVendorController);
 router.post(Routes.follow_unfollow_vendor, FollowUnFollowVendorController);
 router.post(Routes.favorite_product, FavoriteProductController);
+router.post(Routes.product_info_update, UpdateProductInfoController);
+router.post(Routes.vendor_account_update, UpdateAccountInfoController);
+router.post(Routes.enable_disable_product, EnableDisasbleProductController);
+router.post(Routes.debits_payments_add, AddDebitsPaymentsController);
+router.post(Routes.debits_payments_get, GetDebitsPaymentsController);
 export default router;
