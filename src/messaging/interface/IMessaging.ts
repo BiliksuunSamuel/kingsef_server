@@ -21,4 +21,6 @@ export interface IChat {
   sent: boolean;
   _id: string;
   id: string;
+  type: string;
+  source: string;
 }

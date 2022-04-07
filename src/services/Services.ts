@@ -316,6 +316,23 @@ export function GetHelpCenterChats() {
   });
 }
 
+export function UpdateChatMessageSeen(info: { chat_id: string; myId: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      HelpCenterChatModel.updateOne(
+        { chat_id: info.chat_id },
+        { $addToSet: { seen: info.myId } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
 export function DeleteHelpCenterMessage(info: { id: string }) {
   return new Promise(function (resolve, reject) {
     try {

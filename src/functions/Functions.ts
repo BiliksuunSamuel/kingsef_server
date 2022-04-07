@@ -38,3 +38,24 @@ export function WriteBase64File(base64Data: any, id: any) {
     }
   });
 }
+
+export function WriteBase64FileChatImage(base64Data: any, id: any) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const fname = id + Date.now().toString() + `.jpg`;
+      fs.writeFile(
+        "./src/public/chat_media/" + fname,
+        base64Data,
+        "base64",
+        function (error) {
+          if (error) {
+            reject(error);
+          }
+          resolve("chat_media/" + fname);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}

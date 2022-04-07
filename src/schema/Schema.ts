@@ -76,6 +76,8 @@ export const HelpCenterChatSchema = new mongoose.Schema({
   chat_id: String,
   sent: Boolean,
   id: String,
+  type: String,
+  source: String,
 });
 
 export const OrderSchema = new mongoose.Schema({
