@@ -23,7 +23,10 @@ function default_1(req, res) {
         try {
             const data = req.body;
             const info = {
-                info: Object.assign(Object.assign({}, data.info), { authenticated: false, auth_id: "" }),
+                info: Object.assign(Object.assign({}, data.info), { authenticated: false, auth_id: "", ratings: {
+                        raters: [],
+                        values: [],
+                    }, followers: [] }),
                 bank: data.bank,
                 country: data.country,
                 business: data.business,
