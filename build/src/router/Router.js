@@ -9,6 +9,7 @@ const controllers_1 = require("../controller/controllers");
 const products_1 = require("../controller/products");
 const Reviews_1 = require("../controller/Reviews");
 const vendor_1 = require("../controller/vendor");
+const UpdateAccountInfoController_1 = __importDefault(require("../controller/vendor/UpdateAccountInfoController"));
 const Routes_1 = require("../routes/Routes");
 const router = express_1.default.Router();
 router.get("/", (req, res) => {
@@ -41,4 +42,10 @@ router.post(Routes_1.Routes.order_update, controllers_1.UpdateOrderInfoControlle
 router.post(Routes_1.Routes.rate_vendor, vendor_1.RateVendorController);
 router.post(Routes_1.Routes.follow_unfollow_vendor, vendor_1.FollowUnFollowVendorController);
 router.post(Routes_1.Routes.favorite_product, products_1.FavoriteProductController);
+router.post(Routes_1.Routes.product_info_update, controllers_1.UpdateProductInfoController);
+router.post(Routes_1.Routes.vendor_account_update, UpdateAccountInfoController_1.default);
+router.post(Routes_1.Routes.enable_disable_product, controllers_1.EnableDisasbleProductController);
+router.post(Routes_1.Routes.debits_payments_add, admin_1.AddDebitsPaymentsController);
+router.post(Routes_1.Routes.debits_payments_get, admin_1.GetDebitsPaymentsController);
+router.post(Routes_1.Routes.package_order_info_update, admin_1.UpdatePackagingOrderInfoController);
 exports.default = router;

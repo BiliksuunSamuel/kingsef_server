@@ -9,16 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ModelServices_1 = require("../../services/ModelServices");
+const VendorServices_1 = require("../../services/VendorServices");
 function default_1(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const info = req.body;
-            yield (0, ModelServices_1.AddMerit)({ title: info.title, value: info.value });
-            res.send({
-                data: yield (0, ModelServices_1.GetMerits)(),
-                message: "Product Display Order Added Successfully",
-            });
+            yield (0, VendorServices_1.UpdateAccountInfo)(info, info._id);
+            res.send("Account Details Updated Successfully, changes will be applied on you next login");
         }
         catch (error) {
             console.log(error);

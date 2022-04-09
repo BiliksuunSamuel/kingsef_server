@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeleteHelpCenterMessage = exports.GetHelpCenterChats = exports.SaveHelpCenterChat = exports.PackageFavorites = exports.PackageLike = exports.GetPackageById = exports.UpdatePackageQuantity = exports.GetPackageOrders = exports.AddPackageOrder = exports.GetPackages = exports.AddPackage = exports.UpdateDisplayCat = exports.GetDisplayCatById = exports.GetDisplayCats = exports.AddDisplayCat = exports.GetReviews = exports.AddReview = exports.GetAdverts = exports.AddAdvert = exports.AddNotification = exports.GetDeliveryPricingByISOCode = exports.GetDeliveryPricings = exports.AddDeliveryPricing = void 0;
+exports.UpdatePackagingOrderInfo = exports.GetDebitsPayments = exports.AddDebitPayment = exports.DeleteHelpCenterMessage = exports.UpdateChatMessageSeen = exports.GetHelpCenterChats = exports.SaveHelpCenterChat = exports.PackageFavorites = exports.PackageLike = exports.GetPackageById = exports.UpdatePackageQuantity = exports.GetPackageOrders = exports.AddPackageOrder = exports.GetPackages = exports.AddPackage = exports.UpdateDisplayCat = exports.GetDisplayCatById = exports.GetDisplayCats = exports.AddDisplayCat = exports.GetReviews = exports.AddReview = exports.GetAdverts = exports.AddAdvert = exports.AddNotification = exports.GetDeliveryPricingByISOCode = exports.GetDeliveryPricings = exports.AddDeliveryPricing = void 0;
 const Model_1 = require("../model/Model");
 function AddDeliveryPricing(info) {
     return new Promise(function (resolve, reject) {
@@ -310,6 +310,20 @@ function GetHelpCenterChats() {
     });
 }
 exports.GetHelpCenterChats = GetHelpCenterChats;
+function UpdateChatMessageSeen(info) {
+    return new Promise(function (resolve, reject) {
+        try {
+            Model_1.HelpCenterChatModel.updateOne({ chat_id: info.chat_id }, { $addToSet: { seen: info.myId } }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdateChatMessageSeen = UpdateChatMessageSeen;
 function DeleteHelpCenterMessage(info) {
     return new Promise(function (resolve, reject) {
         try {
@@ -328,3 +342,44 @@ function DeleteHelpCenterMessage(info) {
     });
 }
 exports.DeleteHelpCenterMessage = DeleteHelpCenterMessage;
+function AddDebitPayment(info) {
+    return new Promise(function (resolve, reject) {
+        try {
+            const Info = new Model_1.DebitsPaymentsModel(info);
+            Info.save();
+            resolve(Info);
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.AddDebitPayment = AddDebitPayment;
+function GetDebitsPayments() {
+    return new Promise(function (resolve, reject) {
+        try {
+            Model_1.DebitsPaymentsModel.find((error, payments) => {
+                error && reject(error);
+                resolve(payments);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.GetDebitsPayments = GetDebitsPayments;
+function UpdatePackagingOrderInfo(info, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            Model_1.PackageOrderModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdatePackagingOrderInfo = UpdatePackagingOrderInfo;

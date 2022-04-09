@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrderSchema = exports.HelpCenterChatSchema = exports.AdminCommentsSchema = exports.PackageOrderSchema = exports.PackageSchema = exports.DisplayCatSchema = exports.ReviewsSchema = exports.AdvertSchema = exports.NotificationSchema = exports.DeliverPricingSchema = void 0;
+exports.DebitsPaymentsSchema = exports.OrderSchema = exports.HelpCenterChatSchema = exports.AdminCommentsSchema = exports.PackageOrderSchema = exports.PackageSchema = exports.DisplayCatSchema = exports.ReviewsSchema = exports.AdvertSchema = exports.NotificationSchema = exports.DeliverPricingSchema = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 exports.DeliverPricingSchema = new mongoose_1.default.Schema({
     state_city: Object,
@@ -44,6 +44,9 @@ exports.PackageSchema = new mongoose_1.default.Schema({
     images: Array,
     favorites: Array,
     likes: Array,
+    available: Boolean,
+    currency: String,
+    country: Object,
 });
 exports.PackageOrderSchema = new mongoose_1.default.Schema({
     items: Array,
@@ -53,6 +56,14 @@ exports.PackageOrderSchema = new mongoose_1.default.Schema({
     group: Number,
     date_ordered: String,
     status: Object,
+    delivery_status: Object,
+    like: Array,
+    rating: Array,
+    raters: Array,
+    delivery_info: Object,
+    payment: Object,
+    transaction: Object,
+    seller: String,
 });
 exports.AdminCommentsSchema = new mongoose_1.default.Schema({
     type: Number,
@@ -74,6 +85,8 @@ exports.HelpCenterChatSchema = new mongoose_1.default.Schema({
     chat_id: String,
     sent: Boolean,
     id: String,
+    type: String,
+    source: String,
 });
 exports.OrderSchema = new mongoose_1.default.Schema({
     date: String,
@@ -91,4 +104,12 @@ exports.OrderSchema = new mongoose_1.default.Schema({
     sellers: Array,
     delivery_cost: Number,
     currency_symbol: String,
+});
+exports.DebitsPaymentsSchema = new mongoose_1.default.Schema({
+    date_paid: String,
+    amount: Number,
+    vendor: String,
+    reference: String,
+    account: Object,
+    currency: String,
 });

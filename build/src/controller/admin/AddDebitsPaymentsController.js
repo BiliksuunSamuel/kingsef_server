@@ -8,21 +8,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const ModelServices_1 = require("../../services/ModelServices");
-function default_1(req, res) {
+const moment_1 = __importDefault(require("moment"));
+const Functions_1 = require("../../functions/Functions");
+const Services_1 = require("../../services/Services");
+function default_1(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const info = req.body;
-            yield (0, ModelServices_1.AddMerit)({ title: info.title, value: info.value });
-            res.send({
-                data: yield (0, ModelServices_1.GetMerits)(),
-                message: "Product Display Order Added Successfully",
+            const info = request.body;
+            info.date_paid = (0, moment_1.default)().format();
+            info.reference = (0, Functions_1.GenerateOTP)();
+            const Info = yield (0, Services_1.AddDebitPayment)(info);
+            response.send({
+                message: "Payment Successfull",
+                data: yield (0, Services_1.GetDebitsPayments)(),
             });
         }
         catch (error) {
             console.log(error);
-            res.status(404).send("Server Network Error");
+            response.status(404).send("Server Network Error");
         }
     });
 }

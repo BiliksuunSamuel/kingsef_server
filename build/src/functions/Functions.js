@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WriteBase64File = exports.GenerateOTP = void 0;
+exports.WriteBase64FileChatImage = exports.WriteBase64File = exports.GenerateOTP = void 0;
 const otp_client_1 = __importDefault(require("otp-client"));
 const fs_1 = __importDefault(require("fs"));
 function GenerateOTP() {
@@ -40,3 +40,20 @@ function WriteBase64File(base64Data, id) {
     });
 }
 exports.WriteBase64File = WriteBase64File;
+function WriteBase64FileChatImage(base64Data, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            const fname = id + Date.now().toString() + `.jpg`;
+            fs_1.default.writeFile("./src/public/chat_media/" + fname, base64Data, "base64", function (error) {
+                if (error) {
+                    reject(error);
+                }
+                resolve("chat_media/" + fname);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.WriteBase64FileChatImage = WriteBase64FileChatImage;

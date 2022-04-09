@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FollowUnfollowVendor = exports.RateVendor = exports.AccountStatus = exports.ResendOTP = exports.OTPApproved = exports.GetVendors = exports.ApproveAccount = exports.GetVendorByEmail = exports.AddVendor = void 0;
+exports.UpdateAccountInfo = exports.GetVendorById = exports.UpdateProfile = exports.FollowUnfollowVendor = exports.RateVendor = exports.AccountStatus = exports.ResendOTP = exports.OTPApproved = exports.GetVendors = exports.ApproveAccount = exports.GetVendorByEmail = exports.AddVendor = void 0;
 const moment_1 = __importDefault(require("moment"));
 const VendorModel_1 = require("../model/VendorModel");
 //add vendor
@@ -150,3 +150,45 @@ function FollowUnfollowVendor(info) {
     });
 }
 exports.FollowUnfollowVendor = FollowUnfollowVendor;
+function UpdateProfile(info, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            VendorModel_1.VendorInfoModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.UpdateProfile = UpdateProfile;
+function GetVendorById(id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            VendorModel_1.VendorInfoModel.findOne({ _id: id }, (error, results) => {
+                error && reject(error);
+                resolve(results);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.GetVendorById = GetVendorById;
+function UpdateAccountInfo(info, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            VendorModel_1.VendorInfoModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdateAccountInfo = UpdateAccountInfo;

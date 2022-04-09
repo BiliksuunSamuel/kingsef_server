@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ResendOTP = exports.OTPApproved = exports.UpdateUserInfo = exports.RegisterUser = exports.GetUsers = exports.GetUserByEmail = exports.GetUserById = void 0;
+exports.UpdateProfile = exports.ResendOTP = exports.OTPApproved = exports.UpdateUserInfo = exports.RegisterUser = exports.GetUsers = exports.GetUserByEmail = exports.GetUserById = void 0;
 const moment_1 = __importDefault(require("moment"));
 const UserModel_1 = require("../model/UserModel");
 ///GET USER BY ID
@@ -123,3 +123,17 @@ function ResendOTP(email) {
     });
 }
 exports.ResendOTP = ResendOTP;
+function UpdateProfile(info, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            UserModel_1.UserModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.UpdateProfile = UpdateProfile;

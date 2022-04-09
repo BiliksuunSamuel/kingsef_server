@@ -19,16 +19,6 @@ function default_1(req, res) {
         try {
             const info = req.body;
             const Info = Object.assign(Object.assign({}, info), { date_ordered: (0, moment_1.default)().format(), status: { processed: 0, approved: false, declined: false } });
-            for (let i = 0; i < info.items.length; i++) {
-                const item = info.items[i];
-                const pack = yield (0, Services_1.GetPackageById)(item.id);
-                if (pack) {
-                    yield (0, Services_1.UpdatePackageQuantity)({
-                        id: item.id,
-                        qnt: pack.quantity - item.qnt,
-                    });
-                }
-            }
             yield (0, Services_1.AddPackageOrder)(Info);
             res.send("Order Placed Sucessfully,Awaiting Approval");
         }

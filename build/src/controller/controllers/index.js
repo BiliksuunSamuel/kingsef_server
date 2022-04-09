@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetOrdersController = exports.UpdateOrderInfoController = exports.PlaceOrderController = exports.PackageFavoritesController = exports.PackageLikesController = exports.GetVendorsController = exports.LoginController = exports.GetMeritsController = exports.AddMeritController = exports.GetProductsController = exports.GetCategoriesController = exports.AddCategoryController = void 0;
+exports.EnableDisasbleProductController = exports.UpdateProductInfoController = exports.GetOrdersController = exports.UpdateOrderInfoController = exports.PlaceOrderController = exports.PackageFavoritesController = exports.PackageLikesController = exports.GetVendorsController = exports.LoginController = exports.GetMeritsController = exports.AddMeritController = exports.GetProductsController = exports.GetCategoriesController = exports.AddCategoryController = void 0;
 var AddCategoryController_1 = require("./AddCategoryController");
 Object.defineProperty(exports, "AddCategoryController", { enumerable: true, get: function () { return __importDefault(AddCategoryController_1).default; } });
 var GetCategoriesController_1 = require("./GetCategoriesController");
@@ -28,3 +28,7 @@ var UpdarteOrderInfoController_1 = require("./UpdarteOrderInfoController");
 Object.defineProperty(exports, "UpdateOrderInfoController", { enumerable: true, get: function () { return __importDefault(UpdarteOrderInfoController_1).default; } });
 var GetOrdersController_1 = require("./GetOrdersController");
 Object.defineProperty(exports, "GetOrdersController", { enumerable: true, get: function () { return __importDefault(GetOrdersController_1).default; } });
+var UpdateProductInfoController_1 = require("./UpdateProductInfoController");
+Object.defineProperty(exports, "UpdateProductInfoController", { enumerable: true, get: function () { return __importDefault(UpdateProductInfoController_1).default; } });
+var DisableEnableProductControlller_1 = require("./DisableEnableProductControlller");
+Object.defineProperty(exports, "EnableDisasbleProductController", { enumerable: true, get: function () { return __importDefault(DisableEnableProductControlller_1).default; } });

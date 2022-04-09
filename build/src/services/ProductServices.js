@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MakeProductFavorite = exports.DeclineProduct = exports.ApproveProduct = exports.GetProducts = exports.AddNewProduct = exports.AddCategory = exports.GetCategories = void 0;
+exports.EnableDisableProduct = exports.UpdateProductInfo = exports.MakeProductFavorite = exports.DeclineProduct = exports.ApproveProduct = exports.GetProducts = exports.AddNewProduct = exports.AddCategory = exports.GetCategories = void 0;
 const productsModel_1 = require("../model/productsModel");
 function GetCategories() {
     return new Promise(function (resolve, reject) {
@@ -131,3 +131,35 @@ function MakeProductFavorite(info) {
     });
 }
 exports.MakeProductFavorite = MakeProductFavorite;
+function UpdateProductInfo(info, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            productsModel_1.ProductInfoModel.updateOne({
+                _id: id,
+            }, {
+                $set: Object.assign({}, info),
+            }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdateProductInfo = UpdateProductInfo;
+function EnableDisableProduct(info, id) {
+    return new Promise(function (resolve, reject) {
+        try {
+            productsModel_1.ProductInfoModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.EnableDisableProduct = EnableDisableProduct;

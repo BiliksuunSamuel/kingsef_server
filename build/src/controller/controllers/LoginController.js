@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const os_1 = require("os");
 const AuthServices_1 = require("../../services/AuthServices");
 const UserServices_1 = require("../../services/UserServices");
 const VendorServices_1 = require("../../services/VendorServices");
@@ -30,11 +29,11 @@ function default_1(req, res) {
                     res.status(404).send("Incorrect Login Password");
                 }
             }
-            else if (os_1.userInfo) {
+            else if (UserInfo) {
                 const AuthInfo = yield (0, AuthServices_1.GetAuthById)(UserInfo.info.auth_id);
                 const match = yield (0, HandlePassword_1.VerifyPassword)(data.password, AuthInfo.password);
                 if (match) {
-                    res.send({ vendor: null, user: os_1.userInfo });
+                    res.send({ vendor: null, user: UserInfo });
                 }
                 else {
                     res.status(404).send("Incorrect Login Password");

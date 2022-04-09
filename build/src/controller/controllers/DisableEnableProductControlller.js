@@ -9,20 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ModelServices_1 = require("../../services/ModelServices");
-function default_1(req, res) {
+const ProductServices_1 = require("../../services/ProductServices");
+function default_1(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const info = req.body;
-            yield (0, ModelServices_1.AddMerit)({ title: info.title, value: info.value });
-            res.send({
-                data: yield (0, ModelServices_1.GetMerits)(),
-                message: "Product Display Order Added Successfully",
-            });
+            const info = request.body;
+            yield (0, ProductServices_1.EnableDisableProduct)(info, info._id);
+            response.send("Product Status Changed Successfully");
         }
         catch (error) {
             console.log(error);
-            res.status(404).send("Server Network Error");
+            response.status(404).send("Server Network Error");
         }
     });
 }

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrderModel = exports.HelpCenterChatModel = exports.AdminCommentsModel = exports.PackageOrderModel = exports.PackageModel = exports.DisplayCatModel = exports.ReviewsModel = exports.AdvertModel = exports.NotificationModel = exports.DeliveryPricingModel = void 0;
+exports.DebitsPaymentsModel = exports.OrderModel = exports.HelpCenterChatModel = exports.AdminCommentsModel = exports.PackageOrderModel = exports.PackageModel = exports.DisplayCatModel = exports.ReviewsModel = exports.AdvertModel = exports.NotificationModel = exports.DeliveryPricingModel = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const Schema_1 = require("../schema/Schema");
 exports.DeliveryPricingModel = mongoose_1.default.model("delivery_pricing", Schema_1.DeliverPricingSchema);
@@ -16,3 +16,4 @@ exports.PackageOrderModel = mongoose_1.default.model("package_order", Schema_1.P
 exports.AdminCommentsModel = mongoose_1.default.model("admin_comment", Schema_1.AdminCommentsSchema);
 exports.HelpCenterChatModel = mongoose_1.default.model("help_center_chat", Schema_1.HelpCenterChatSchema);
 exports.OrderModel = mongoose_1.default.model("order", Schema_1.OrderSchema);
+exports.DebitsPaymentsModel = mongoose_1.default.model("debits_payment", Schema_1.DebitsPaymentsSchema);

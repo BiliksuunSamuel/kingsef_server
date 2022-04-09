@@ -13,7 +13,8 @@ const Services_1 = require("../../services/Services");
 function default_1(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            res.send(yield (0, Services_1.GetPackageOrders)());
+            const data = yield (0, Services_1.GetPackageOrders)();
+            res.send(data);
         }
         catch (error) {
             console.log(error);
