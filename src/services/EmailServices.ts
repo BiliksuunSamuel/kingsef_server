@@ -72,6 +72,31 @@ export function OrderPlacementEmailMessage(info: {
   });
 }
 
+export function AccountApprovalEmail(info: { to: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const mailData: MailOptions = {
+        from: "KINSEF.com", // sender address
+        to: info.to, // list of receivers
+        subject: "Kinsef Seller Account",
+        html: `<div>
+        <h1>Registration Status</h1>
+        <h3>Your Account Registration As A Kinsef Seller Has Been Approved Successfully</h3>
+        <h5>Login Into Your Account To Start Uploading Your Products</h5>
+        <p>than you:)</p>
+        </div>`,
+        text: "Order Placed Successfully",
+      };
+      transporter.sendMail(mailData, (error, res) => {
+        error && reject(error);
+        resolve(res);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
 function HtmlTemplate(info: {
   currency: string;
   qnty: number;

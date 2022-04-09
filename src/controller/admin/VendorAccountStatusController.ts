@@ -1,9 +1,19 @@
 import { Request, Response } from "express";
-import { AccountStatus, GetVendors } from "../../services/VendorServices";
+import { IVendorInfo } from "../../interface/IVendor";
+import { AccountApprovalEmail } from "../../services/EmailServices";
+import {
+  AccountStatus,
+  GetVendorById,
+  GetVendors,
+} from "../../services/VendorServices";
 
 export default async function (req: Request, res: Response) {
   try {
     const data = req.body;
+    const vendor = <any>await GetVendorById(data?.id);
+    if (vendor) {
+      await AccountApprovalEmail({ to: vendor?.info?.email });
+    }
     await AccountStatus({ id: data?.id, status: data?.status });
     res.send(await GetVendors());
   } catch (error) {

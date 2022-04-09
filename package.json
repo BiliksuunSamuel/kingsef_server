@@ -4,7 +4,7 @@
   "description": "express server for kingsef ecommerce website",
   "main": "server.js",
   "scripts": {
-    "start": "node build/server.js",
+    "start": "nodemon server.ts",
     "build": "tsc",
     "postinstall": "tsc"
   },
