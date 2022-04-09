@@ -3,8 +3,8 @@ import nodeMailer from "nodemailer";
 import dotenv from "dotenv";
 
 export const connectionString =
-  // "mongodb+srv://samuelbills:77045109@cluster0.nakki.mongodb.net/kinsef";
-  Db_URL;
+  "mongodb+srv://samuelbills:77045109@cluster0.nakki.mongodb.net/kinsef";
+// Db_URL;
 
 const transporter = nodeMailer.createTransport({
   port: 465,
