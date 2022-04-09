@@ -7,6 +7,11 @@ export interface IPersonInfo {
   status: number;
   authenticated: boolean;
   otp_expiresIn: string;
+  ratings: {
+    raters: string[];
+    values: { id: string; score: number }[];
+  };
+  followers: string[];
 }
 export interface ICountryInfo {
   state_region: any;

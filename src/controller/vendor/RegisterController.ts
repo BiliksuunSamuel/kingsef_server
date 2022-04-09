@@ -14,7 +14,16 @@ export default async function (req: Request, res: Response) {
   try {
     const data = req.body;
     const info = {
-      info: { ...data.info, authenticated: false, auth_id: "" },
+      info: {
+        ...data.info,
+        authenticated: false,
+        auth_id: "",
+        ratings: {
+          raters: [],
+          values: [],
+        },
+        followers: [],
+      },
       bank: data.bank,
       country: data.country,
       business: data.business,
