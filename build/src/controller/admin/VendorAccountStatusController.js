@@ -9,11 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const EmailServices_1 = require("../../services/EmailServices");
 const VendorServices_1 = require("../../services/VendorServices");
 function default_1(req, res) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = req.body;
+            const vendor = yield (0, VendorServices_1.GetVendorById)(data === null || data === void 0 ? void 0 : data.id);
+            if (vendor) {
+                yield (0, EmailServices_1.AccountApprovalEmail)({ to: (_a = vendor === null || vendor === void 0 ? void 0 : vendor.info) === null || _a === void 0 ? void 0 : _a.email });
+            }
             yield (0, VendorServices_1.AccountStatus)({ id: data === null || data === void 0 ? void 0 : data.id, status: data === null || data === void 0 ? void 0 : data.status });
             res.send(yield (0, VendorServices_1.GetVendors)());
         }
