@@ -48,6 +48,29 @@ export interface IPackageOrder {
   total: number;
   vendor: string;
   group: number;
+  date_ordered: string;
+  status: { processed: number; approved: boolean; declined: boolean };
+  delivery_status: {
+    delivered: boolean;
+    date_delivered: string;
+    message: string;
+    comment: string;
+  };
+  like: string[];
+  rating: { id: string; value: number }[];
+  raters: string[];
+  delivery_info: {
+    address: string;
+  };
+  payment: {
+    name: string;
+    email: string;
+  };
+  transaction: {
+    currency: string;
+    country: any;
+  };
+  seller: string;
 }
 
 export interface IPackageModel {
@@ -62,6 +85,9 @@ export interface IPackageModel {
   _id: string;
   favorites: string[];
   likes: string[];
+  currency: string;
+  country: any;
+  available: boolean;
 }
 
 export interface IAdminComments {

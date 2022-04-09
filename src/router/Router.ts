@@ -10,6 +10,7 @@ import {
   GetPressingCatsController,
   GetUsersController,
   ProductApproveDeclineController,
+  UpdatePackagingOrderInfoController,
   UpdatePressingCatController,
   VendorAccountStatusController,
 } from "../controller/admin";
@@ -78,4 +79,8 @@ router.post(Routes.vendor_account_update, UpdateAccountInfoController);
 router.post(Routes.enable_disable_product, EnableDisasbleProductController);
 router.post(Routes.debits_payments_add, AddDebitsPaymentsController);
 router.post(Routes.debits_payments_get, GetDebitsPaymentsController);
+router.post(
+  Routes.package_order_info_update,
+  UpdatePackagingOrderInfoController
+);
 export default router;

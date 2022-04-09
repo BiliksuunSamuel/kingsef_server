@@ -43,6 +43,9 @@ export const PackageSchema = new mongoose.Schema({
   images: Array,
   favorites: Array,
   likes: Array,
+  available: Boolean,
+  currency: String,
+  country: Object,
 });
 
 export const PackageOrderSchema = new mongoose.Schema({
@@ -53,6 +56,14 @@ export const PackageOrderSchema = new mongoose.Schema({
   group: Number,
   date_ordered: String,
   status: Object,
+  delivery_status: Object,
+  like: Array,
+  rating: Array,
+  raters: Array,
+  delivery_info: Object,
+  payment: Object,
+  transaction: Object,
+  seller: String,
 });
 
 export const AdminCommentsSchema = new mongoose.Schema({

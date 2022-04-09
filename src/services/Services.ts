@@ -1,4 +1,5 @@
 import { IDebitPaymentInfo } from "../interface/IDebitsPaymentInfo";
+import { IPackageOrder } from "../interface/IModel";
 import {
   AdvertModel,
   DebitsPaymentsModel,
@@ -373,6 +374,23 @@ export function GetDebitsPayments() {
         error && reject(error);
         resolve(payments);
       });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function UpdatePackagingOrderInfo(info: IPackageOrder, id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      PackageOrderModel.updateOne(
+        { _id: id },
+        { $set: { ...info } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
     } catch (error) {
       reject(error);
     }

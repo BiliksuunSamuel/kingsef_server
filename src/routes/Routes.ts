@@ -35,4 +35,5 @@ export enum Routes {
   user_account_update = "/api/user/account/update",
   debits_payments_get = "/api/debits/payments/get",
   debits_payments_add = "/api/debits/payments/add",
+  package_order_info_update = "/api/package_order_info/update",
 }

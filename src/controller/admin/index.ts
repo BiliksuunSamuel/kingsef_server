@@ -15,3 +15,4 @@ export { default as AddPackageOrderController } from "./AddPackageOrderControlle
 export { default as GetPackageOrdersController } from "./GetPackageOrderController";
 export { default as AddDebitsPaymentsController } from "./AddDebitsPaymentsController";
 export { default as GetDebitsPaymentsController } from "./GetDebitsPaymentsController";
+export { default as UpdatePackagingOrderInfoController } from "./UpdatePackagingOrderInfo";
