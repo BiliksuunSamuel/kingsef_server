@@ -22,7 +22,7 @@
     "express": "^4.17.2",
     "express-fileupload": "^1.2.1",
     "http": "^0.0.1-security",
-    "moment": "^2.29.1",
+    "moment": "^2.29.3",
     "mongoose": "^6.2.8",
     "nodemailer": "^6.7.2",
     "nodemailer-juice": "^1.0.1",
