@@ -10,11 +10,11 @@ import {
 export default async function (req: Request, res: Response) {
   try {
     const data = req.body;
-    const vendor = <any>await GetVendorById(data?.id);
-    if (vendor) {
-      await AccountApprovalEmail({ to: vendor?.info?.email });
-    }
-    await AccountStatus({ id: data?.id, status: data?.status });
+    // const vendor = <any>await GetVendorById(data?.id);
+    // if (vendor) {
+    //   await AccountApprovalEmail({ to: vendor?.info?.email });
+    // }
+    await AccountStatus(data, data._id);
     res.send(await GetVendors());
   } catch (error) {
     console.log(error);

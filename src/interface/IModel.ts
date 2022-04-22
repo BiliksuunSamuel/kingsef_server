@@ -97,6 +97,7 @@ export interface IAdminComments {
   seen: string[];
   sender: string;
   date_added: string;
+  title: string;
 }
 
 export interface IOrderInfo {
@@ -115,11 +116,15 @@ export interface IOrderInfo {
     delivered: boolean;
     date_delivered: string;
     address: string;
+    town_city: string;
+    house_number: string;
+    appartment_suit: string;
   };
   status: {
     approved: boolean;
     processed: number;
     declined: boolean;
+    delivered: boolean;
   };
   billing: {
     email: string;
@@ -136,10 +141,16 @@ export interface IOrderInfo {
   sellers: string[];
   delivery_cost: number;
   currency_symbol: string;
+  note: string;
+  delivered_by: string[];
+  declined_by: string[];
 }
 export interface IOrderContentItem {
   qnty: number;
   cost: number;
   id: string;
+  delivery_cost: number;
   seller: string;
+  name: string;
+  specification: { id: string; title: string; value: any; quantity: number }[];
 }

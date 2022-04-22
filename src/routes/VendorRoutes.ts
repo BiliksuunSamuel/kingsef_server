@@ -8,4 +8,10 @@ export enum VendorRoutes {
   delivery_pricing_get = "/api/vendor/delivery/pricing/get",
   banner_add = "/api/vendor/advertisement/add",
   banner_get = "/api/vendor/advertisement/get",
+  category_delete = "/api/category/delete",
+  category_update = "/api/category/update",
+  advertisement_delete = "/api/advertisement/delete",
+  advertisement_update = "/api/advertisement/update",
+  admin_post_delete = "/api/admin/post/delete",
+  admin_post_update = "/api/admin/post/update",
 }

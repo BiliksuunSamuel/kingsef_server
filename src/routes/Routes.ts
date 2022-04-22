@@ -36,4 +36,5 @@ export enum Routes {
   debits_payments_get = "/api/debits/payments/get",
   debits_payments_add = "/api/debits/payments/add",
   package_order_info_update = "/api/package_order_info/update",
+  chat_image_upload = "/api/chat_image_upload",
 }

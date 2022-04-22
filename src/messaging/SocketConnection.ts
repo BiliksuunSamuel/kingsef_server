@@ -1,6 +1,7 @@
 import moment from "moment";
 import { Server, Socket } from "socket.io";
 import { v4 as uuidv4 } from "uuid";
+import { HandleFileUpload } from "../functions/CloudinaryUpload";
 import { WriteBase64FileChatImage } from "../functions/Functions";
 import {
   GetHelpCenterChats,
@@ -35,17 +36,12 @@ export default function SocketConnection(io: Server) {
       SocketOnDisconnect(info, socket);
     });
 
-    socket.on(
-      "image-message",
-      async (data: { message: IChat; basefile: any }, callback) => {
+    socket.on("image-message", async (data: { message: IChat }, callback) => {
+      try {
         const message = data.message;
-        const path = <any>(
-          await WriteBase64FileChatImage(data.basefile.data, message.id)
-        );
         message.time = moment().format();
         message.sent = true;
         message.type = "image";
-        message.source = path;
         SocketOnMessage(message, socket);
         const newMessage = await SaveHelpCenterChat({
           message: message.message,
@@ -60,12 +56,14 @@ export default function SocketConnection(io: Server) {
           sent: message.sent,
           id: message.id,
           type: "image",
-          source: path,
+          source: message.source,
         });
         callback(message);
         io.emit("help_center_message", await GetHelpCenterChats());
+      } catch (error) {
+        console.log(error);
       }
-    );
+    });
     socket.on("help_center_message", async (message: IChat, callback) => {
       message.time = moment().format();
       message.sent = true;

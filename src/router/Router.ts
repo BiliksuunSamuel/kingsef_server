@@ -29,6 +29,7 @@ import {
   UpdateOrderInfoController,
   UpdateProductInfoController,
   EnableDisasbleProductController,
+  ChatImageUploadController,
 } from "../controller/controllers";
 import { FavoriteProductController } from "../controller/products";
 import {
@@ -83,4 +84,5 @@ router.post(
   Routes.package_order_info_update,
   UpdatePackagingOrderInfoController
 );
+router.post(Routes.chat_image_upload, ChatImageUploadController);
 export default router;

@@ -12,7 +12,7 @@ export default async function (req: Request, res: Response) {
       let product = data[i];
       for (let j = 0; j < product.gallery.length; j++) {
         imagesContainer.push(
-          await WriteBase64File(product.gallery[j]?.data, uuid())
+          await WriteBase64File(product.gallery[j]?.base64, uuid())
         );
       }
       const pimage: any = await WriteBase64File(product.image?.base64, uuid());

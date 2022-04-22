@@ -7,6 +7,7 @@ import socketIo from "socket.io";
 import { AdminRouter, Router, UserRouter, VendorRouter } from "./src/router";
 import SocketConnection from "./src/messaging/SocketConnection";
 import { config } from "./src/configuration/Config";
+import moment from "moment";
 const port = process.env.PORT || process.env.port;
 const app = express();
 const server = http.createServer(app);
@@ -22,6 +23,7 @@ app.use(AdminRouter);
 app.use(Router);
 app.use(VendorRouter);
 
+// console.log(moment(Date.now()).format("DD/MMMM/YYYY"));
 // console.log(moment().add(15, "minute").format());
 ///STARTING THE SERVER ON PORT 3030
 server.listen(config.server.port, () => {

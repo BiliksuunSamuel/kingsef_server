@@ -24,6 +24,11 @@ export const ProductSchema = new mongoose.Schema({
   favorites: Array,
   available: Boolean,
   details_listing: Array,
+  currency: String,
+  country_info: Object,
+  sub_category: String,
+  search_keyword: String,
+  ispackaging: Boolean,
 });
 
 export const CategorySchema = new mongoose.Schema({

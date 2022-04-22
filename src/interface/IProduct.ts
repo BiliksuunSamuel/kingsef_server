@@ -40,6 +40,11 @@ export interface IProductInfo {
   favorites: string[];
   available: boolean;
   details_listing: { id: string; title: string; value: any }[];
+  currency: string;
+  country_info: any;
+  sub_category: string;
+  search_keyword: string;
+  ispackaging: boolean;
 }
 
 export interface INewProductInfo {
@@ -66,4 +71,9 @@ export interface INewProductInfo {
   variable: { id: string; title: string; value: string }[];
   country_code: string;
   details_listing: { id: string; title: string; value: any }[];
+  currency: string;
+  country_info: any;
+  sub_category: string;
+  search_keyword: string;
+  ispackaging: boolean;
 }

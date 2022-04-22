@@ -12,3 +12,4 @@ export { default as UpdateOrderInfoController } from "./UpdarteOrderInfoControll
 export { default as GetOrdersController } from "./GetOrdersController";
 export { default as UpdateProductInfoController } from "./UpdateProductInfoController";
 export { default as EnableDisasbleProductController } from "./DisableEnableProductControlller";
+export { default as ChatImageUploadController } from "./ChatImageUploadController";

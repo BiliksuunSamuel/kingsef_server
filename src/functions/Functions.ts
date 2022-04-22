@@ -11,11 +11,19 @@ export function GenerateOTP(): string {
   const otp = new OTP(secret, options);
   const token = otp.getToken(); // e.g. 74837433
   return token;
-  // return OTP.generate(6, {
-  //   upperCaseAlphabets: false,
-  //   specialChars: false,
-  //   digits: true,
-  // });
+}
+
+export function RemoveFileFromDir(path: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      fs.unlink("./src/public/" + path, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
 export function WriteBase64File(base64Data: any, id: any) {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { WriteBase64File } from "../../functions/Functions";
+import { RemoveFileFromDir, WriteBase64File } from "../../functions/Functions";
 import { IProductInfo } from "../../interface/IProduct";
 import { v4 as uuid } from "uuid";
 import { UpdateProductInfo } from "../../services/ProductServices";
@@ -16,6 +16,9 @@ export default async function (req: Request, res: Response) {
           await WriteBase64File(data.Images.gallery[j]?.data, uuid())
         );
       }
+      for (let i = 0; i < data.info.gallery.length; i++) {
+        await RemoveFileFromDir(data.info.gallery[i]);
+      }
       data.info.gallery = imagesContainer;
     }
     if (data.Images.image) {
@@ -23,6 +26,7 @@ export default async function (req: Request, res: Response) {
         data.Images.image?.data,
         uuid()
       );
+      await RemoveFileFromDir(data.info.image);
       data.info.image = pimage;
     }
     await UpdateProductInfo(data.info, data.info?._id);

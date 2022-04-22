@@ -6,3 +6,7 @@ export { default as AddDeliveryPricingController } from "./AddDeliveryPricingCon
 export { default as GetDeliveryPricingController } from "./GetDeliveryPricingController";
 export { default as RateVendorController } from "./RateVendorController";
 export { default as FollowUnFollowVendorController } from "./FollowUnFollowVendorController";
+export { default as DeleteProductCategoryController } from "./DeleteCategoryController";
+export { default as UpdateCategoryController } from "./UpdateCategoryController";
+export { default as UpdateAdvertisementController } from "./UpdateAdvertisementController";
+export { default as DeleteAdvertisementController } from "./DeleteAdvertisementController";

@@ -73,6 +73,7 @@ export const AdminCommentsSchema = new mongoose.Schema({
   seen: Array,
   sender: String,
   date_added: String,
+  title: String,
 });
 
 export const HelpCenterChatSchema = new mongoose.Schema({
@@ -107,6 +108,9 @@ export const OrderSchema = new mongoose.Schema({
   sellers: Array,
   delivery_cost: Number,
   currency_symbol: String,
+  delivered_by: Array,
+  declined_by: Array,
+  note: String,
 });
 
 export const DebitsPaymentsSchema = new mongoose.Schema({

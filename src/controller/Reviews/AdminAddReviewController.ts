@@ -15,7 +15,7 @@ export default async function AdminAddCommentsController(
     await AddAdminComment({ ...info, date_added: moment().format() });
     res.send({
       data: await GetAdminComments(),
-      message: "Message Sent Successfull",
+      message: "Message Sent Successfully",
     });
   } catch (error) {
     console.log();

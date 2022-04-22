@@ -1,5 +1,6 @@
 import moment from "moment";
 import { IVendorInfo } from "../interface/IVendor";
+import { IVendorAccountInfo } from "../interface/IVendorModel";
 import { VendorInfoModel } from "../model/VendorModel";
 
 //add vendor
@@ -105,17 +106,13 @@ export function ResendOTP(email) {
   });
 }
 
-export function AccountStatus(info: { id: string; status: string }) {
+export function AccountStatus(info: IVendorAccountInfo, id: string) {
   return new Promise(function (resolve, reject) {
     try {
-      VendorInfoModel.updateOne(
-        { _id: info.id },
-        { $set: { "account.status": info.status } },
-        (error) => {
-          error && reject(error);
-          resolve(true);
-        }
-      );
+      VendorInfoModel.updateOne({ _id: id }, { $set: { ...info } }, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
     } catch (error) {
       reject(error);
     }

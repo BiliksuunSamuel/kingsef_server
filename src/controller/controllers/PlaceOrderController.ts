@@ -15,13 +15,10 @@ export default async function PlaceOrderController(
     orderInfo.reference = GenerateOTP();
     orderInfo.ratings = { raters: [], values: [] };
     orderInfo.sellers = GetSellers(orderInfo.content);
+    orderInfo.status.approved = true;
+    orderInfo.status.processed = 1;
 
-    await OrderPlacementEmailMessage({
-      to: orderInfo.billing.email,
-      amount: orderInfo.amount,
-      qnty: orderInfo.content.length,
-      currency: orderInfo.currency,
-    });
+    await OrderPlacementEmailMessage(orderInfo);
     await AddOrder(orderInfo);
     res.send(true);
   } catch (error) {

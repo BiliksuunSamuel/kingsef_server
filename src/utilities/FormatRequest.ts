@@ -71,6 +71,11 @@ export function PrepareNewProductInfo(
     favorites: [],
     available: true,
     details_listing: info.details_listing,
+    currency: info.currency,
+    country_info: info.country_info,
+    sub_category: info.sub_category,
+    search_keyword: info.search_keyword,
+    ispackaging: info.ispackaging,
   };
   return Info;
 }
