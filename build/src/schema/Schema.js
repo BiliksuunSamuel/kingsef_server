@@ -72,6 +72,7 @@ exports.AdminCommentsSchema = new mongoose_1.default.Schema({
     seen: Array,
     sender: String,
     date_added: String,
+    title: String,
 });
 exports.HelpCenterChatSchema = new mongoose_1.default.Schema({
     message: String,
@@ -104,6 +105,9 @@ exports.OrderSchema = new mongoose_1.default.Schema({
     sellers: Array,
     delivery_cost: Number,
     currency_symbol: String,
+    delivered_by: Array,
+    declined_by: Array,
+    note: String,
 });
 exports.DebitsPaymentsSchema = new mongoose_1.default.Schema({
     date_paid: String,

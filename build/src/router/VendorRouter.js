@@ -16,4 +16,8 @@ router.post(VendorRoutes_1.VendorRoutes.delivery_pricing_add, vendor_1.AddDelive
 router.post(VendorRoutes_1.VendorRoutes.delivery_pricing_get, vendor_1.GetDeliveryPricingController);
 router.post(VendorRoutes_1.VendorRoutes.banner_add, admin_1.AddAdvertController);
 router.post(VendorRoutes_1.VendorRoutes.banner_get, admin_1.GetAdvertsController);
+router.post(VendorRoutes_1.VendorRoutes.category_update, vendor_1.UpdateCategoryController);
+router.post(VendorRoutes_1.VendorRoutes.category_delete, vendor_1.DeleteProductCategoryController);
+router.post(VendorRoutes_1.VendorRoutes.advertisement_delete, vendor_1.DeleteAdvertisementController);
+router.post(VendorRoutes_1.VendorRoutes.advertisement_update, vendor_1.UpdateAdvertisementController);
 exports.default = router;

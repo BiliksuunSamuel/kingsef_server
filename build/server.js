@@ -26,6 +26,7 @@ app.use(router_1.UserRouter);
 app.use(router_1.AdminRouter);
 app.use(router_1.Router);
 app.use(router_1.VendorRouter);
+// console.log(moment(Date.now()).format("DD/MMMM/YYYY"));
 // console.log(moment().add(15, "minute").format());
 ///STARTING THE SERVER ON PORT 3030
 server.listen(Config_1.config.server.port, () => {

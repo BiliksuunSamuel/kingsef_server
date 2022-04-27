@@ -9,17 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const VendorServices_1 = require("../../services/VendorServices");
+const ManagementServices_1 = require("../../services/ManagementServices");
 function default_1(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = req.body;
-            // const vendor = <any>await GetVendorById(data?.id);
-            // if (vendor) {
-            //   await AccountApprovalEmail({ to: vendor?.info?.email });
-            // }
-            yield (0, VendorServices_1.AccountStatus)(data, data._id);
-            res.send(yield (0, VendorServices_1.GetVendors)());
+            const info = req.body;
+            yield (0, ManagementServices_1.DeleteAdminPost)(info.id);
+            res.send("Post Deleted Successfully");
         }
         catch (error) {
             console.log(error);

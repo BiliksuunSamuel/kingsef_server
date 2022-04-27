@@ -24,12 +24,9 @@ function PlaceOrderController(req, res) {
             orderInfo.reference = (0, Functions_1.GenerateOTP)();
             orderInfo.ratings = { raters: [], values: [] };
             orderInfo.sellers = GetSellers(orderInfo.content);
-            yield (0, EmailServices_1.OrderPlacementEmailMessage)({
-                to: orderInfo.billing.email,
-                amount: orderInfo.amount,
-                qnty: orderInfo.content.length,
-                currency: orderInfo.currency,
-            });
+            orderInfo.status.approved = true;
+            orderInfo.status.processed = 1;
+            yield (0, EmailServices_1.OrderPlacementEmailMessage)(orderInfo);
             yield (0, OrderServices_1.AddOrder)(orderInfo);
             res.send(true);
         }

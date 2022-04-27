@@ -40,4 +40,5 @@ var Routes;
     Routes["debits_payments_get"] = "/api/debits/payments/get";
     Routes["debits_payments_add"] = "/api/debits/payments/add";
     Routes["package_order_info_update"] = "/api/package_order_info/update";
+    Routes["chat_image_upload"] = "/api/chat_image_upload";
 })(Routes = exports.Routes || (exports.Routes = {}));

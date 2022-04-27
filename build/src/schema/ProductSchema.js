@@ -29,6 +29,11 @@ exports.ProductSchema = new mongoose_1.default.Schema({
     favorites: Array,
     available: Boolean,
     details_listing: Array,
+    currency: String,
+    country_info: Object,
+    sub_category: String,
+    search_keyword: String,
+    ispackaging: Boolean,
 });
 exports.CategorySchema = new mongoose_1.default.Schema({
     title: String,

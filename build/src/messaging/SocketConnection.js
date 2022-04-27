@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const moment_1 = __importDefault(require("moment"));
-const Functions_1 = require("../functions/Functions");
 const Services_1 = require("../services/Services");
 const socketEvents_1 = require("./socketEvents");
 function SocketConnection(io) {
@@ -29,30 +28,33 @@ function SocketConnection(io) {
             (0, socketEvents_1.SocketOnDisconnect)(info, socket);
         });
         socket.on("image-message", (data, callback) => __awaiter(this, void 0, void 0, function* () {
-            const message = data.message;
-            const path = (yield (0, Functions_1.WriteBase64FileChatImage)(data.basefile.data, message.id));
-            message.time = (0, moment_1.default)().format();
-            message.sent = true;
-            message.type = "image";
-            message.source = path;
-            (0, socketEvents_1.SocketOnMessage)(message, socket);
-            const newMessage = yield (0, Services_1.SaveHelpCenterChat)({
-                message: message.message,
-                seen: message.seen,
-                time: message.time,
-                copied_text: message.copied_text,
-                sender: message.sender,
-                receiver: message.receiver,
-                deleted: message.deleted,
-                ref: message.ref,
-                chat_id: message.chat_id,
-                sent: message.sent,
-                id: message.id,
-                type: "image",
-                source: path,
-            });
-            callback(message);
-            io.emit("help_center_message", yield (0, Services_1.GetHelpCenterChats)());
+            try {
+                const message = data.message;
+                message.time = (0, moment_1.default)().format();
+                message.sent = true;
+                message.type = "image";
+                (0, socketEvents_1.SocketOnMessage)(message, socket);
+                const newMessage = yield (0, Services_1.SaveHelpCenterChat)({
+                    message: message.message,
+                    seen: message.seen,
+                    time: message.time,
+                    copied_text: message.copied_text,
+                    sender: message.sender,
+                    receiver: message.receiver,
+                    deleted: message.deleted,
+                    ref: message.ref,
+                    chat_id: message.chat_id,
+                    sent: message.sent,
+                    id: message.id,
+                    type: "image",
+                    source: message.source,
+                });
+                callback(message);
+                io.emit("help_center_message", yield (0, Services_1.GetHelpCenterChats)());
+            }
+            catch (error) {
+                console.log(error);
+            }
         }));
         socket.on("help_center_message", (message, callback) => __awaiter(this, void 0, void 0, function* () {
             message.time = (0, moment_1.default)().format();

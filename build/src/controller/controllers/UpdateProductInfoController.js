@@ -22,10 +22,14 @@ function default_1(req, res) {
                 for (let j = 0; j < data.Images.gallery.length; j++) {
                     imagesContainer.push(yield (0, Functions_1.WriteBase64File)((_a = data.Images.gallery[j]) === null || _a === void 0 ? void 0 : _a.data, (0, uuid_1.v4)()));
                 }
+                for (let i = 0; i < data.info.gallery.length; i++) {
+                    yield (0, Functions_1.RemoveFileFromDir)(data.info.gallery[i]);
+                }
                 data.info.gallery = imagesContainer;
             }
             if (data.Images.image) {
                 const pimage = yield (0, Functions_1.WriteBase64File)((_b = data.Images.image) === null || _b === void 0 ? void 0 : _b.data, (0, uuid_1.v4)());
+                yield (0, Functions_1.RemoveFileFromDir)(data.info.image);
                 data.info.image = pimage;
             }
             yield (0, ProductServices_1.UpdateProductInfo)(data.info, (_c = data.info) === null || _c === void 0 ? void 0 : _c._id);

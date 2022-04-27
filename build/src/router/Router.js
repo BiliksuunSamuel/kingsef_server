@@ -48,4 +48,5 @@ router.post(Routes_1.Routes.enable_disable_product, controllers_1.EnableDisasble
 router.post(Routes_1.Routes.debits_payments_add, admin_1.AddDebitsPaymentsController);
 router.post(Routes_1.Routes.debits_payments_get, admin_1.GetDebitsPaymentsController);
 router.post(Routes_1.Routes.package_order_info_update, admin_1.UpdatePackagingOrderInfoController);
+router.post(Routes_1.Routes.chat_image_upload, controllers_1.ChatImageUploadController);
 exports.default = router;

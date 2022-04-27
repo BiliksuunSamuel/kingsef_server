@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnableDisasbleProductController = exports.UpdateProductInfoController = exports.GetOrdersController = exports.UpdateOrderInfoController = exports.PlaceOrderController = exports.PackageFavoritesController = exports.PackageLikesController = exports.GetVendorsController = exports.LoginController = exports.GetMeritsController = exports.AddMeritController = exports.GetProductsController = exports.GetCategoriesController = exports.AddCategoryController = void 0;
+exports.ChatImageUploadController = exports.EnableDisasbleProductController = exports.UpdateProductInfoController = exports.GetOrdersController = exports.UpdateOrderInfoController = exports.PlaceOrderController = exports.PackageFavoritesController = exports.PackageLikesController = exports.GetVendorsController = exports.LoginController = exports.GetMeritsController = exports.AddMeritController = exports.GetProductsController = exports.GetCategoriesController = exports.AddCategoryController = void 0;
 var AddCategoryController_1 = require("./AddCategoryController");
 Object.defineProperty(exports, "AddCategoryController", { enumerable: true, get: function () { return __importDefault(AddCategoryController_1).default; } });
 var GetCategoriesController_1 = require("./GetCategoriesController");
@@ -32,3 +32,5 @@ var UpdateProductInfoController_1 = require("./UpdateProductInfoController");
 Object.defineProperty(exports, "UpdateProductInfoController", { enumerable: true, get: function () { return __importDefault(UpdateProductInfoController_1).default; } });
 var DisableEnableProductControlller_1 = require("./DisableEnableProductControlller");
 Object.defineProperty(exports, "EnableDisasbleProductController", { enumerable: true, get: function () { return __importDefault(DisableEnableProductControlller_1).default; } });
+var ChatImageUploadController_1 = require("./ChatImageUploadController");
+Object.defineProperty(exports, "ChatImageUploadController", { enumerable: true, get: function () { return __importDefault(ChatImageUploadController_1).default; } });

@@ -9,21 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const VendorServices_1 = require("../../services/VendorServices");
-function default_1(req, res) {
+const ManagementServices_1 = require("../../services/ManagementServices");
+const ProductServices_1 = require("../../services/ProductServices");
+function default_1(request, response) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = req.body;
-            // const vendor = <any>await GetVendorById(data?.id);
-            // if (vendor) {
-            //   await AccountApprovalEmail({ to: vendor?.info?.email });
-            // }
-            yield (0, VendorServices_1.AccountStatus)(data, data._id);
-            res.send(yield (0, VendorServices_1.GetVendors)());
+            const data = request.body;
+            yield (0, ManagementServices_1.UpdateProductCategory)(data, data === null || data === void 0 ? void 0 : data._id);
+            response.send({
+                data: yield (0, ProductServices_1.GetCategories)(),
+                message: "Product Category Updated Successfully",
+            });
         }
         catch (error) {
             console.log(error);
-            res.status(404).send("Server Network Error");
+            response.status(404).send("Server Network Error");
         }
     });
 }

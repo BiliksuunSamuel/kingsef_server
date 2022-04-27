@@ -10,25 +10,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Functions_1 = require("../../functions/Functions");
-const FormatRequest_1 = require("../../utilities/FormatRequest");
-const uuid_1 = require("uuid");
-const ProductServices_1 = require("../../services/ProductServices");
+const ManagementServices_1 = require("../../services/ManagementServices");
+const Services_1 = require("../../services/Services");
 function default_1(req, res) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = req.body;
-            for (let i = 0; i < data.length; i++) {
-                const imagesContainer = [];
-                let product = data[i];
-                for (let j = 0; j < product.gallery.length; j++) {
-                    imagesContainer.push(yield (0, Functions_1.WriteBase64File)((_a = product.gallery[j]) === null || _a === void 0 ? void 0 : _a.base64, (0, uuid_1.v4)()));
-                }
-                const pimage = yield (0, Functions_1.WriteBase64File)((_b = product.image) === null || _b === void 0 ? void 0 : _b.base64, (0, uuid_1.v4)());
-                const productInfo = (0, FormatRequest_1.PrepareNewProductInfo)(product, pimage, imagesContainer);
-                yield (0, ProductServices_1.AddNewProduct)(productInfo);
-            }
-            res.send("Product Uploaded Sucessfully");
+            const info = req.body;
+            yield (0, Functions_1.RemoveFileFromDir)(info.path);
+            yield (0, ManagementServices_1.DeleteAdvertisement)(info.id);
+            res.send({
+                data: yield (0, Services_1.GetAdverts)(),
+                message: "Advertisement Deleted Successfully",
+            });
         }
         catch (error) {
             console.log(error);

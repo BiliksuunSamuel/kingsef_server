@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AccountApprovalEmail = exports.OrderPlacementEmailMessage = exports.SendMail = exports.PrepareMessage = exports.PrepareEmail = void 0;
 const Config_1 = __importDefault(require("../configuration/Config"));
 const nodemailer_juice_1 = __importDefault(require("nodemailer-juice"));
+const moment_1 = __importDefault(require("moment"));
 function PrepareEmail({ sender, receiver, subject, message }) {
     const mailData = {
         from: sender,
@@ -42,7 +43,7 @@ function OrderPlacementEmailMessage(info) {
         try {
             const mailData = {
                 from: "KINSEF.com",
-                to: info.to,
+                to: info.billing.email,
                 subject: "Kinsef Product Order Info",
                 html: HtmlTemplate(info),
                 text: "Order Placed Successfully",
@@ -87,207 +88,266 @@ function AccountApprovalEmail(info) {
 exports.AccountApprovalEmail = AccountApprovalEmail;
 function HtmlTemplate(info) {
     return `
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+  <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Document Test</title>
+    <title>Document</title>
 
     <style>
-      html {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        height: 100vh;
-        width: 100vw;
+      * {
+        padding: 0;
+        margin: 0;
+        background-color: #fff;
+        font-family: arial;
+        font-size: 12;
       }
+
       body {
-        padding: 20px;
-        justify-content: center;
-        background: steelblue;
-        width: 100%;
-        overflow: hidden;
         height: 100%;
+        width: 100%;
+        box-sizing: border-box;
       }
       .container {
-        background-color: #fefefe;
-        max-width: 400px;
-        overflow: hidden;
-        min-width:100%;
+        padding: 0px;
+        border-radius: 1px;
       }
-      .header {
+      .container_header {
         padding: 10px;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        border-bottom: 1px solid #d0d0d0;
-      }
-      .header_title {
-        text-align: center;
-        font-weight: bold;
-        font-size: 16;
-        width: 100%;
-        text-transform: uppercase;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      }
-      .item_container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        padding: 5px;
+        justify-content: center;
+        background-color: #dc931e;
       }
-      .item_container_label {
-        text-align: left;
-        width: 100%;
-        font-size: 0.75rem;
-        color: gray;
-      }
-      .item_container_value {
-        width: 100%;
-        text-align: left;
-        color: #004565;
-        font-weight: 500;
-        font-size: 0.85rem;
-        padding: 5px 0;
-      }
-      .item {
-        padding: 10px 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-      }
-      .item_header_title {
-        flex: 1;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: 500;
-        font-family: bahnschrift;
-        font-size: 0.75rem;
-      }
-      .items_table {
-        width: 100%;
-        margin-top: 10px;
-        box-shadow: 2px 2px 2px #f3f3f3;
-        border-radius: 0px;
-        padding: 8px;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:flex-start
-      }
-      .item_data {
-        padding: 10px 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-      }
-      .item_data_value {
-        flex: 1;
-        text-align: center;
-        font-weight: 200;
-        font-family: bahnschrift;
-        font-size: 0.75rem;
-      }
-      .footer {
-        width: 100%;
-        margin-top: 20px;
-        align-self: center;
-        justify-self: center;
-      }
-      .cost_container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-      }
-      .cost_label {
-        flex: 1;
-        text-align: left;
-        font-weight: bold;
-        font-size: 0.8rem;
-        width: 100%;
-        padding-left: 10px;
-      }
-      .cost_value {
-        flex: 1;
-        font-weight: bold;
-        text-align: right;
-        width: 100%;
-        font-size: 0.85rem;
-        padding-right: 20px;
+      .container_header h3 {
+        background-color: transparent;
+        color: #fff;
       }
       .info_container {
+        margin: 10px 0;
+      }
+
+      .info_container h5 {
+        margin: 5px 0;
+        color: #dc931e;
+      }
+
+      .product_info_container {
+        margin: 0;
+        border: 0px solid rgba(211, 211, 211, 0.65);
+        padding: 5px;
+      }
+
+      .product_table {
+        margin: 10px 0;
+      }
+      .product_table tr th {
+        font-weight: bold;
+        text-align: center;
+      }
+      .product_table tr td {
+        text-align: center;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
         width: 100%;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      .billing_info_container {
+        padding: 5px 20x;
+        margin: 10px px;
+      }
+      .billing_info {
+        padding: 10px 5px;
+        border-radius: 0px;
+        border: 1px solid rgba(211, 211, 211, 0.65);
+        margin-top: 10px;
+      }
+      .billing_info p {
+        margin-top: 5px;
+      }
+      .billing_info h4 {
+        margin-top: 5px;
+      }
+      .billing_info a {
+        margin: 5px 0;
+      }
+      .thank_msg {
+        margin: 10px 0;
+      }
+
+      .download_app_container {
+        width: auto;
+      }
+
+      .img {
+        height: 150px;
+        width: 100%;
+        overflow: hidden;
+        background-color: black;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .logo {
+        height: 50px;
+        align-self: flex-start;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <p class="header_title">Order Details</p>
+     <div class="logo">
+        <img
+          src="https://www.kinsef.com/storage/2021/05/1-e1620128165670-1-e1622102906188.png"
+        />
+      </div>
+      <div class="container_header">
+        <h3>Thank you for your order</h3>
       </div>
       <div class="info_container">
-        <div class="item_container">
-          <p class="item_container_label">Customer Name:</p>
-          <p class="item_container_value">Biliksuun Samuel</p>
-        </div>
-        <div class="item_container">
-          <p class="item_container_label">Tracking Number:</p>
-          <p class="item_container_value">0550465223</p>
-        </div>
-        <div class="item_container">
-          <p class="item_container_label">Email Address:</p>
-          <p class="item_container_value">biliksuunsamuel@gmail.com</p>
-        </div>
-        <div class="item_container">
-          <p class="item_container_label">Shipping Address:</p>
-          <p class="item_container_value">Sunyani Fiapre Ghana</p>
-        </div>
-      </div>
-      <div class="items_table">
-        <div class="item">
-          <p class="item_header_title">Ref.</p>
-          <p class="item_header_title">No. Items</p>
-          <p class="item_header_title">Amount</p>
-        </div>
-        <div class="item_data">
-          <p class="item_data_value">640789</p>
-          <p class="item_data_value">5</p>
-          <p class="item_data_value">250</p>
-        </div>
-      </div>
-      <div class="links" style="padding: 10px; margin-top: 10px; width: 100%">
-        <p class="complain_tex">
-          If you have any issues or complains,send an email to:
+        <h4>Hi ${info.billing.name},</h4>
+        <p>
+          Just to let you know -- we've received your order
+          <strong> #${info.reference}, </strong> and it is now being processed:
         </p>
-        <a style="text-decoration: none" href="mailto:support@kinsef.com">
-          <p style="text-decoration: none; color: #dc931e">
-            Support@Kinsef.com
+        <h5>[Order #${info.reference}] ${(0, moment_1.default)(info.date).format("DD/MMMM/YYYY")}</h5>
+      </div>
+      <div class="product_info_container">
+        <table class="product_table">
+          <tr>
+            <th style="text-align:left">Product</th>
+            <th>Quantity</th>
+            <th colspan="2">Selection</th>
+            <th>Price</th>
+          </tr>
+          ${info.content
+        .map((c) => `<tr>
+                <td style="text-align: left">
+                ${c.name}
+                </td>
+                <td>
+                ${c.qnty}
+                </td>
+                <td colspan="2">
+                 ${c.specification.length > 0
+        ? `
+                      <table>
+                      <tr>
+                        <th>Title</th>
+                        <th>Value</th>
+                        <th>Qnty</th>
+                      </tr>
+                      ${c.specification
+            .map((cs) => `
+                        <tr>
+                        <td>${cs.title}</th>
+                        <td>${cs.value}</td>
+                        <td>${cs.quantity}</td>
+                         </tr>
+                        `)
+            .join("")}
+                    </table>
+                   `
+        : `<h2>--</h2>`}
+                </td>
+                <td>
+                ${info.currency_symbol + c.cost}
+                </td>
+              </tr>`)
+        .join("")}
+          <tr>
+            <td colspan="4" style="text-align: left"><strong>Subtotal:</strong></td>
+            <td>
+            ${info.currency_symbol + (info.amount - info.delivery_cost)}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: left"><strong>Shipping:</strong></td>
+            <td>
+            ${info.currency_symbol + info.delivery_cost}
+            <small>via flat rate</small></td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: left"><strong>Payment Method:</strong></td>
+            <td>Debit/Credit Cards</td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: left"><strong>Total:</strong></td>
+            <td>
+              <strong>
+              ${info.currency_symbol + info.amount}
+              </strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="billing_info_container">
+        <h3>Billing Address</h3>
+        <div class="billing_info">
+          <p>
+          ${info.billing.name}
           </p>
-        </a>
+          <p>
+          ${info.delivery.town_city}
+          </p>
+          <h4>
+          ${info.billing.phone}
+          </h4>
+          <a
+            style="margin-top: 10xp; margin-bottom: 10px"
+            href="mailto:${info.billing.email}"
+          >
+            ${info.billing.email}
+          </a>
+        </div>
+      </div>
+      <h3 class="thank_msg">Thanks for shopping with us.</h3>
+      <h3 class="thank_msg" style="margin-top:20px">Download The Kinsef Mobile App From:</h3>
+      <div class="download_app_container">
+        <table style="border-style: none">
+          <tr style="border-style: none">
+            <td style="border-style: none">
+              <div class="img">
+                <a style="border-style: none">
+                  <img
+                    src="https://freeiconshop.com/wp-content/uploads/edd/google-play-badge.png"
+                  />
+                </a>
+              </div>
+            </td>
+            <td style="border-style: none">
+              <div class="img" style="border-style: none">
+                <a>
+                  <img
+                    style="border-style: none"
+                    src="https://manners4minors.com/wp-content/uploads/2016/06/app-store-badge.png"
+                  />
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </body>
 </html>
-  `;
+ `;
 }

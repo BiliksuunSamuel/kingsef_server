@@ -100,10 +100,10 @@ function ResendOTP(email) {
     });
 }
 exports.ResendOTP = ResendOTP;
-function AccountStatus(info) {
+function AccountStatus(info, id) {
     return new Promise(function (resolve, reject) {
         try {
-            VendorModel_1.VendorInfoModel.updateOne({ _id: info.id }, { $set: { "account.status": info.status } }, (error) => {
+            VendorModel_1.VendorInfoModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
                 error && reject(error);
                 resolve(true);
             });

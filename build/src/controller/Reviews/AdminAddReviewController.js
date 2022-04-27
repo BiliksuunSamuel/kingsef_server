@@ -21,7 +21,7 @@ function AdminAddCommentsController(req, res) {
             yield (0, ReviewServices_1.AddAdminComment)(Object.assign(Object.assign({}, info), { date_added: (0, moment_1.default)().format() }));
             res.send({
                 data: yield (0, ReviewServices_1.GetAdminComments)(),
-                message: "Message Sent Successfull",
+                message: "Message Sent Successfully",
             });
         }
         catch (error) {
