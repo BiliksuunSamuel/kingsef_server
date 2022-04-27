@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ChatImageUploadController = exports.EnableDisasbleProductController = exports.UpdateProductInfoController = exports.GetOrdersController = exports.UpdateOrderInfoController = exports.PlaceOrderController = exports.PackageFavoritesController = exports.PackageLikesController = exports.GetVendorsController = exports.LoginController = exports.GetMeritsController = exports.AddMeritController = exports.GetProductsController = exports.GetCategoriesController = exports.AddCategoryController = void 0;
+exports.ResetPasswordOTPController = exports.ResetPasswordController = exports.ChatImageUploadController = exports.EnableDisasbleProductController = exports.UpdateProductInfoController = exports.GetOrdersController = exports.UpdateOrderInfoController = exports.PlaceOrderController = exports.PackageFavoritesController = exports.PackageLikesController = exports.GetVendorsController = exports.LoginController = exports.GetMeritsController = exports.AddMeritController = exports.GetProductsController = exports.GetCategoriesController = exports.AddCategoryController = void 0;
 var AddCategoryController_1 = require("./AddCategoryController");
 Object.defineProperty(exports, "AddCategoryController", { enumerable: true, get: function () { return __importDefault(AddCategoryController_1).default; } });
 var GetCategoriesController_1 = require("./GetCategoriesController");
@@ -34,3 +34,7 @@ var DisableEnableProductControlller_1 = require("./DisableEnableProductControlll
 Object.defineProperty(exports, "EnableDisasbleProductController", { enumerable: true, get: function () { return __importDefault(DisableEnableProductControlller_1).default; } });
 var ChatImageUploadController_1 = require("./ChatImageUploadController");
 Object.defineProperty(exports, "ChatImageUploadController", { enumerable: true, get: function () { return __importDefault(ChatImageUploadController_1).default; } });
+var ResetPasswordController_1 = require("./ResetPasswordController");
+Object.defineProperty(exports, "ResetPasswordController", { enumerable: true, get: function () { return __importDefault(ResetPasswordController_1).default; } });
+var ResetPasswordEmailOTPController_1 = require("./ResetPasswordEmailOTPController");
+Object.defineProperty(exports, "ResetPasswordOTPController", { enumerable: true, get: function () { return __importDefault(ResetPasswordEmailOTPController_1).default; } });

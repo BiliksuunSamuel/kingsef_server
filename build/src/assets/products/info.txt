@@ -1,0 +1,3 @@
+this folder contains all the media assets related to the products
+categories
+banners

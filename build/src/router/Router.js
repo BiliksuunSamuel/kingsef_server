@@ -49,4 +49,6 @@ router.post(Routes_1.Routes.debits_payments_add, admin_1.AddDebitsPaymentsContro
 router.post(Routes_1.Routes.debits_payments_get, admin_1.GetDebitsPaymentsController);
 router.post(Routes_1.Routes.package_order_info_update, admin_1.UpdatePackagingOrderInfoController);
 router.post(Routes_1.Routes.chat_image_upload, controllers_1.ChatImageUploadController);
+router.post(Routes_1.Routes.password_reset, controllers_1.ResetPasswordOTPController);
+router.post(Routes_1.Routes.password_reset_pwd, controllers_1.ResetPasswordController);
 exports.default = router;

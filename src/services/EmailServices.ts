@@ -8,13 +8,18 @@ import moment from "moment";
 // const template = new singleTemplate("template.html");
 // template.compile();
 
-type Props = {
+export type MailProps = {
   sender: string;
   receiver: string;
   subject: string;
   message: string;
 };
-export function PrepareEmail({ sender, receiver, subject, message }: Props) {
+export function PrepareEmail({
+  sender,
+  receiver,
+  subject,
+  message,
+}: MailProps) {
   const mailData = {
     from: sender, // sender address
     to: receiver, // list of receivers
@@ -33,6 +38,10 @@ export function PrepareMessage({ name, otp }: MsgParams) {
   return msg;
 }
 
+export function PreparePasswordResetMailMessage({ name, otp }: MsgParams) {
+  let msg = `Hi,${name},your one time authentication code is  ${otp}`;
+  return msg;
+}
 export function SendMail(mailData) {
   return new Promise(function (resolve, reject) {
     try {
@@ -80,9 +89,8 @@ export function AccountApprovalEmail(info: { to: string }) {
         <h1>Registration Status</h1>
         <h3>Your Account Registration As A Kinsef Seller Has Been Approved Successfully</h3>
         <h5>Login Into Your Account To Start Uploading Your Products</h5>
-        <p>than you:)</p>
+        <p>thank you:)</p>
         </div>`,
-        text: "Order Placed Successfully",
       };
       transporter.sendMail(mailData, (error, res) => {
         error && reject(error);

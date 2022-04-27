@@ -17,6 +17,40 @@ export function GetAuthById(id: string) {
   });
 }
 
+//UPDATE OTP
+export function UpdateAccountOTP(info: { id: string; otp: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      AuthModel.updateOne(
+        { _id: info.id },
+        { $set: { "otp.code": info.otp } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+///UPDATE ACCOUNT PASSWORD
+export function UpdateAccountPassword(info: { id: string; password: string }) {
+  return new Promise(function (resolve, reject) {
+    try {
+      AuthModel.updateOne(
+        { _id: info.id },
+        { $set: { password: info.password } },
+        (error) => {
+          error && reject(error);
+          resolve(true);
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
 ///GET AUTH BY EMAIL
 export function GetAuthByEmail(info: { email: string }) {
   return new Promise(function (resolve, reject) {

@@ -23,7 +23,7 @@ function GetUserById(id) {
     });
 }
 exports.GetUserById = GetUserById;
-///GET USER BY PHONE
+///GET USER BY EMAIL
 function GetUserByEmail(email) {
     return new Promise(function (resolve, reject) {
         try {

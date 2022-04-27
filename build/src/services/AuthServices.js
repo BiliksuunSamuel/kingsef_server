@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OTPAccepted = exports.ResendOTP = exports.UpdateAuthPassword = exports.UpdateAuthInfo = exports.VerifyOTP = exports.RegisterAuthInfo = exports.GetAuthByEmail = exports.GetAuthById = void 0;
+exports.OTPAccepted = exports.ResendOTP = exports.UpdateAuthPassword = exports.UpdateAuthInfo = exports.VerifyOTP = exports.RegisterAuthInfo = exports.GetAuthByEmail = exports.UpdateAccountPassword = exports.UpdateAccountOTP = exports.GetAuthById = void 0;
 const AuthModel_1 = require("../model/AuthModel");
 ///GET AUTH BY ID
 function GetAuthById(id) {
@@ -19,6 +19,36 @@ function GetAuthById(id) {
     });
 }
 exports.GetAuthById = GetAuthById;
+//UPDATE OTP
+function UpdateAccountOTP(info) {
+    return new Promise(function (resolve, reject) {
+        try {
+            AuthModel_1.AuthModel.updateOne({ _id: info.id }, { $set: { "otp.code": info.otp } }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdateAccountOTP = UpdateAccountOTP;
+///UPDATE ACCOUNT PASSWORD
+function UpdateAccountPassword(info) {
+    return new Promise(function (resolve, reject) {
+        try {
+            AuthModel_1.AuthModel.updateOne({ _id: info.id }, { $set: { password: info.password } }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdateAccountPassword = UpdateAccountPassword;
 ///GET AUTH BY EMAIL
 function GetAuthByEmail(info) {
     return new Promise(function (resolve, reject) {

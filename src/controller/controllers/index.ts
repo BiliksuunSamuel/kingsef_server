@@ -13,3 +13,5 @@ export { default as GetOrdersController } from "./GetOrdersController";
 export { default as UpdateProductInfoController } from "./UpdateProductInfoController";
 export { default as EnableDisasbleProductController } from "./DisableEnableProductControlller";
 export { default as ChatImageUploadController } from "./ChatImageUploadController";
+export { default as ResetPasswordController } from "./ResetPasswordController";
+export { default as ResetPasswordOTPController } from "./ResetPasswordEmailOTPController";

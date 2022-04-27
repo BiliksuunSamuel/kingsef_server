@@ -3,6 +3,14 @@ export interface IMerit {
   title: string;
 }
 
+export interface IPasswordResetModel {
+  email: string;
+  otp: string;
+  pwd: string;
+  cpwd: string;
+  completed: boolean;
+  isvalid: boolean;
+}
 export interface ICountryStates {
   name: string;
   isoCode: number;

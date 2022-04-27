@@ -30,6 +30,8 @@ import {
   UpdateProductInfoController,
   EnableDisasbleProductController,
   ChatImageUploadController,
+  ResetPasswordController,
+  ResetPasswordOTPController,
 } from "../controller/controllers";
 import { FavoriteProductController } from "../controller/products";
 import {
@@ -85,4 +87,6 @@ router.post(
   UpdatePackagingOrderInfoController
 );
 router.post(Routes.chat_image_upload, ChatImageUploadController);
+router.post(Routes.password_reset, ResetPasswordOTPController);
+router.post(Routes.password_reset_pwd, ResetPasswordController);
 export default router;

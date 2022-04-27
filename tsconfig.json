@@ -9,6 +9,6 @@
     "sourceMap": false,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", ".vscode", "build"],
-  "include": ["./"]
+  "exclude": ["node_modules", ".vscode"],
+  "include": ["."]
 }

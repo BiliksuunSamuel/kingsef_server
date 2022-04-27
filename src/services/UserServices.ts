@@ -19,7 +19,7 @@ export function GetUserById(id: string) {
   });
 }
 
-///GET USER BY PHONE
+///GET USER BY EMAIL
 export function GetUserByEmail(email: string) {
   return new Promise(function (resolve, reject) {
     try {

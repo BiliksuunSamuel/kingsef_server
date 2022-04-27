@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AccountApprovalEmail = exports.OrderPlacementEmailMessage = exports.SendMail = exports.PrepareMessage = exports.PrepareEmail = void 0;
+exports.AccountApprovalEmail = exports.OrderPlacementEmailMessage = exports.SendMail = exports.PreparePasswordResetMailMessage = exports.PrepareMessage = exports.PrepareEmail = void 0;
 const Config_1 = __importDefault(require("../configuration/Config"));
 const nodemailer_juice_1 = __importDefault(require("nodemailer-juice"));
 const moment_1 = __importDefault(require("moment"));
-function PrepareEmail({ sender, receiver, subject, message }) {
+function PrepareEmail({ sender, receiver, subject, message, }) {
     const mailData = {
         from: sender,
         to: receiver,
@@ -22,6 +22,11 @@ function PrepareMessage({ name, otp }) {
     return msg;
 }
 exports.PrepareMessage = PrepareMessage;
+function PreparePasswordResetMailMessage({ name, otp }) {
+    let msg = `Hi,${name},your one time authentication code is  ${otp}`;
+    return msg;
+}
+exports.PreparePasswordResetMailMessage = PreparePasswordResetMailMessage;
 function SendMail(mailData) {
     return new Promise(function (resolve, reject) {
         try {
@@ -71,9 +76,8 @@ function AccountApprovalEmail(info) {
         <h1>Registration Status</h1>
         <h3>Your Account Registration As A Kinsef Seller Has Been Approved Successfully</h3>
         <h5>Login Into Your Account To Start Uploading Your Products</h5>
-        <p>than you:)</p>
+        <p>thank you:)</p>
         </div>`,
-                text: "Order Placed Successfully",
             };
             Config_1.default.sendMail(mailData, (error, res) => {
                 error && reject(error);
