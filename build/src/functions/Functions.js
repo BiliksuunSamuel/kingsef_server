@@ -21,7 +21,7 @@ exports.GenerateOTP = GenerateOTP;
 function RemoveFileFromDir(path) {
     return new Promise(function (resolve, reject) {
         try {
-            fs_1.default.unlink("./src/assets/" + path, (error) => {
+            fs_1.default.unlink("./src/public/" + path, (error) => {
                 error && reject(error);
                 resolve(true);
             });
@@ -36,7 +36,7 @@ function WriteBase64File(base64Data, id) {
     return new Promise(function (resolve, reject) {
         try {
             const fname = id + Date.now().toString() + `.jpg`;
-            fs_1.default.writeFile("./src/assets/products/" + fname, base64Data, "base64", function (error) {
+            fs_1.default.writeFile("./src/public/products/" + fname, base64Data, "base64", function (error) {
                 if (error) {
                     reject(error);
                 }
@@ -53,7 +53,7 @@ function WriteBase64FileChatImage(base64Data, id) {
     return new Promise(function (resolve, reject) {
         try {
             const fname = id + Date.now().toString() + `.jpg`;
-            fs_1.default.writeFile("./src/assets/chat_media/" + fname, base64Data, "base64", function (error) {
+            fs_1.default.writeFile("./src/public/chat_media/" + fname, base64Data, "base64", function (error) {
                 if (error) {
                     reject(error);
                 }
