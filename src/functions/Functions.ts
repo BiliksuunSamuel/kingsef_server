@@ -16,10 +16,14 @@ export function GenerateOTP(): string {
 export function RemoveFileFromDir(path: string) {
   return new Promise(function (resolve, reject) {
     try {
-      fs.unlink("./src/public/" + path, (error) => {
-        error && reject(error);
+      if (fs.existsSync("./src/public/" + path)) {
+        fs.unlink("./src/public/" + path, (error) => {
+          error && reject(error);
+          resolve(true);
+        });
+      } else {
         resolve(true);
-      });
+      }
     } catch (error) {
       reject(error);
     }

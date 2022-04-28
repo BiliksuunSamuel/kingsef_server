@@ -21,10 +21,15 @@ exports.GenerateOTP = GenerateOTP;
 function RemoveFileFromDir(path) {
     return new Promise(function (resolve, reject) {
         try {
-            fs_1.default.unlink("./src/public/" + path, (error) => {
-                error && reject(error);
+            if (fs_1.default.existsSync("./src/public/" + path)) {
+                fs_1.default.unlink("./src/public/" + path, (error) => {
+                    error && reject(error);
+                    resolve(true);
+                });
+            }
+            else {
                 resolve(true);
-            });
+            }
         }
         catch (error) {
             reject(error);
