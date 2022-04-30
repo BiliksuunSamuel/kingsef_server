@@ -14,6 +14,7 @@ import {
   UpdatePressingCatController,
   VendorAccountStatusController,
 } from "../controller/admin";
+import WebUpdatePressingCartController from "../controller/admin/WebUpdatePressingCartController";
 import {
   AddCategoryController,
   AddMeritController,
@@ -89,4 +90,5 @@ router.post(
 router.post(Routes.chat_image_upload, ChatImageUploadController);
 router.post(Routes.password_reset, ResetPasswordOTPController);
 router.post(Routes.password_reset_pwd, ResetPasswordController);
+router.post(Routes.update_pressing_cat, WebUpdatePressingCartController);
 export default router;

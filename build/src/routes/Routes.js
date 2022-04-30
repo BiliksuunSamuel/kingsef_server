@@ -43,4 +43,6 @@ var Routes;
     Routes["chat_image_upload"] = "/api/chat_image_upload";
     Routes["password_reset"] = "/api/password/reset";
     Routes["password_reset_pwd"] = "/api/password/reset/pwd";
+    //
+    Routes["update_pressing_cat"] = "/api/pressing_cat_update";
 })(Routes = exports.Routes || (exports.Routes = {}));

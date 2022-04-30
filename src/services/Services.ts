@@ -1,5 +1,5 @@
 import { IDebitPaymentInfo } from "../interface/IDebitsPaymentInfo";
-import { IPackageOrder } from "../interface/IModel";
+import { IDisplayCat, IPackageOrder } from "../interface/IModel";
 import {
   AdvertModel,
   DebitsPaymentsModel,
@@ -18,6 +18,19 @@ export function AddDeliveryPricing(info: any) {
       const Info = new DeliveryPricingModel(info);
       Info.save();
       resolve(Info);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function UpdateDisplayCatInfo(id: string, info: IDisplayCat) {
+  return new Promise(function (resolve, reject) {
+    try {
+      DisplayCatModel.updateOne({ _id: id }, { $set: { ...info } }, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
     } catch (error) {
       reject(error);
     }

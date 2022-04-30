@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdatePackagingOrderInfoController = exports.GetDebitsPaymentsController = exports.AddDebitsPaymentsController = exports.GetPackageOrdersController = exports.AddPackageOrderController = exports.GetPackageController = exports.AddPackageController = exports.UpdatePressingCatController = exports.GetPressingCatsController = exports.AddPressingCatController = exports.VendorAccountStatusController = exports.GetUsersController = exports.AddAdvertController = exports.GetAdvertsController = exports.ProductApproveDeclineController = exports.RegisterController = exports.LoginController = void 0;
+exports.WebUpdatePressingCatController = exports.UpdatePackagingOrderInfoController = exports.GetDebitsPaymentsController = exports.AddDebitsPaymentsController = exports.GetPackageOrdersController = exports.AddPackageOrderController = exports.GetPackageController = exports.AddPackageController = exports.UpdatePressingCatController = exports.GetPressingCatsController = exports.AddPressingCatController = exports.VendorAccountStatusController = exports.GetUsersController = exports.AddAdvertController = exports.GetAdvertsController = exports.ProductApproveDeclineController = exports.RegisterController = exports.LoginController = void 0;
 var LoginController_1 = require("./LoginController");
 Object.defineProperty(exports, "LoginController", { enumerable: true, get: function () { return __importDefault(LoginController_1).default; } });
 var RegisterController_1 = require("./RegisterController");
@@ -38,3 +38,5 @@ var GetDebitsPaymentsController_1 = require("./GetDebitsPaymentsController");
 Object.defineProperty(exports, "GetDebitsPaymentsController", { enumerable: true, get: function () { return __importDefault(GetDebitsPaymentsController_1).default; } });
 var UpdatePackagingOrderInfo_1 = require("./UpdatePackagingOrderInfo");
 Object.defineProperty(exports, "UpdatePackagingOrderInfoController", { enumerable: true, get: function () { return __importDefault(UpdatePackagingOrderInfo_1).default; } });
+var WebUpdatePressingCartController_1 = require("./WebUpdatePressingCartController");
+Object.defineProperty(exports, "WebUpdatePressingCatController", { enumerable: true, get: function () { return __importDefault(WebUpdatePressingCartController_1).default; } });

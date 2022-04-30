@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdatePackagingOrderInfo = exports.GetDebitsPayments = exports.AddDebitPayment = exports.DeleteHelpCenterMessage = exports.UpdateChatMessageSeen = exports.GetHelpCenterChats = exports.SaveHelpCenterChat = exports.PackageFavorites = exports.PackageLike = exports.GetPackageById = exports.UpdatePackageQuantity = exports.GetPackageOrders = exports.AddPackageOrder = exports.GetPackages = exports.AddPackage = exports.UpdateDisplayCat = exports.GetDisplayCatById = exports.GetDisplayCats = exports.AddDisplayCat = exports.GetReviews = exports.AddReview = exports.GetAdverts = exports.AddAdvert = exports.AddNotification = exports.GetDeliveryPricingByISOCode = exports.GetDeliveryPricings = exports.AddDeliveryPricing = void 0;
+exports.UpdatePackagingOrderInfo = exports.GetDebitsPayments = exports.AddDebitPayment = exports.DeleteHelpCenterMessage = exports.UpdateChatMessageSeen = exports.GetHelpCenterChats = exports.SaveHelpCenterChat = exports.PackageFavorites = exports.PackageLike = exports.GetPackageById = exports.UpdatePackageQuantity = exports.GetPackageOrders = exports.AddPackageOrder = exports.GetPackages = exports.AddPackage = exports.UpdateDisplayCat = exports.GetDisplayCatById = exports.GetDisplayCats = exports.AddDisplayCat = exports.GetReviews = exports.AddReview = exports.GetAdverts = exports.AddAdvert = exports.AddNotification = exports.GetDeliveryPricingByISOCode = exports.GetDeliveryPricings = exports.UpdateDisplayCatInfo = exports.AddDeliveryPricing = void 0;
 const Model_1 = require("../model/Model");
 function AddDeliveryPricing(info) {
     return new Promise(function (resolve, reject) {
@@ -15,6 +15,20 @@ function AddDeliveryPricing(info) {
     });
 }
 exports.AddDeliveryPricing = AddDeliveryPricing;
+function UpdateDisplayCatInfo(id, info) {
+    return new Promise(function (resolve, reject) {
+        try {
+            Model_1.DisplayCatModel.updateOne({ _id: id }, { $set: Object.assign({}, info) }, (error) => {
+                error && reject(error);
+                resolve(true);
+            });
+        }
+        catch (error) {
+            reject(error);
+        }
+    });
+}
+exports.UpdateDisplayCatInfo = UpdateDisplayCatInfo;
 function GetDeliveryPricings() {
     return new Promise(function (resolve, reject) {
         try {

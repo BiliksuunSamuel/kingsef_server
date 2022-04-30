@@ -16,3 +16,4 @@ export { default as GetPackageOrdersController } from "./GetPackageOrderControll
 export { default as AddDebitsPaymentsController } from "./AddDebitsPaymentsController";
 export { default as GetDebitsPaymentsController } from "./GetDebitsPaymentsController";
 export { default as UpdatePackagingOrderInfoController } from "./UpdatePackagingOrderInfo";
+export { default as WebUpdatePressingCatController } from "./WebUpdatePressingCartController";

@@ -39,4 +39,6 @@ export enum Routes {
   chat_image_upload = "/api/chat_image_upload",
   password_reset = "/api/password/reset",
   password_reset_pwd = "/api/password/reset/pwd",
+  //
+  update_pressing_cat = "/api/pressing_cat_update",
 }
