@@ -45,4 +45,5 @@ var Routes;
     Routes["password_reset_pwd"] = "/api/password/reset/pwd";
     //
     Routes["update_pressing_cat"] = "/api/pressing_cat_update";
+    Routes["delete_pressing_cat"] = "/api/pressing_cat_delete";
 })(Routes = exports.Routes || (exports.Routes = {}));

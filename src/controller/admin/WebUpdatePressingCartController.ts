@@ -7,7 +7,10 @@ export default async function (req: Request, res: Response) {
   try {
     const data = req.body;
     const files = req.files;
-    const newpath = <string>await UploadWebFile(files?.file);
+    let newpath = data.image;
+    if (files && files?.file) {
+      newpath = <string>await UploadWebFile(files?.file);
+    }
     const info = {
       cat_ref: data.ref,
       image: newpath,
@@ -15,7 +18,7 @@ export default async function (req: Request, res: Response) {
     await UpdateDisplayCatInfo(data.id, info);
     res.send({
       data: await GetDisplayCats(),
-      message: "Data Received Successfully",
+      message: "Display Category Info Updated Successfully",
     });
   } catch (error) {
     console.log(error);

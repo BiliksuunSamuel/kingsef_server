@@ -9,25 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const WebFileUpload_1 = require("../../functions/WebFileUpload");
+const Functions_1 = require("../../functions/Functions");
 const Services_1 = require("../../services/Services");
 function default_1(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = req.body;
-            const files = req.files;
-            let newpath = data.image;
-            if (files && (files === null || files === void 0 ? void 0 : files.file)) {
-                newpath = (yield (0, WebFileUpload_1.UploadWebFile)(files === null || files === void 0 ? void 0 : files.file));
-            }
-            const info = {
-                cat_ref: data.ref,
-                image: newpath,
-            };
-            yield (0, Services_1.UpdateDisplayCatInfo)(data.id, info);
+            const info = req.body;
+            yield (0, Functions_1.RemoveFileFromDir)(info.image);
+            yield (0, Services_1.DeleteDisplayCatInfo)(info._id);
             res.send({
                 data: yield (0, Services_1.GetDisplayCats)(),
-                message: "Display Category Info Updated Successfully",
+                message: "Display Category Deleted Successfully",
             });
         }
         catch (error) {

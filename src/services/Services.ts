@@ -37,6 +37,19 @@ export function UpdateDisplayCatInfo(id: string, info: any) {
   });
 }
 
+export function DeleteDisplayCatInfo(id: string) {
+  return new Promise(function (resolve, reject) {
+    try {
+      DisplayCatModel.deleteOne({ _id: id }, (error) => {
+        error && reject(error);
+        resolve(true);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
 export function GetDeliveryPricings() {
   return new Promise(function (resolve, reject) {
     try {

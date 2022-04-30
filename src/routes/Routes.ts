@@ -41,4 +41,5 @@ export enum Routes {
   password_reset_pwd = "/api/password/reset/pwd",
   //
   update_pressing_cat = "/api/pressing_cat_update",
+  delete_pressing_cat = "/api/pressing_cat_delete",
 }

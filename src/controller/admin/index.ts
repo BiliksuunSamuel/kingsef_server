@@ -17,3 +17,4 @@ export { default as AddDebitsPaymentsController } from "./AddDebitsPaymentsContr
 export { default as GetDebitsPaymentsController } from "./GetDebitsPaymentsController";
 export { default as UpdatePackagingOrderInfoController } from "./UpdatePackagingOrderInfo";
 export { default as WebUpdatePressingCatController } from "./WebUpdatePressingCartController";
+export { default as DeleteDisplayCatInfoController } from "./DeleteDisplayCatController";
