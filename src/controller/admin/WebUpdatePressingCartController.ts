@@ -8,8 +8,7 @@ export default async function (req: Request, res: Response) {
     const data = req.body;
     const files = req.files;
     const newpath = <string>await UploadWebFile(files?.file);
-    const info: IDisplayCat = {
-      _id: "",
+    const info = {
       cat_ref: data.ref,
       image: newpath,
     };

@@ -18,7 +18,6 @@ function default_1(req, res) {
             const files = req.files;
             const newpath = yield (0, WebFileUpload_1.UploadWebFile)(files === null || files === void 0 ? void 0 : files.file);
             const info = {
-                _id: "",
                 cat_ref: data.ref,
                 image: newpath,
             };

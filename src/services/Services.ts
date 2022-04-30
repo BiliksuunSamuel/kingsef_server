@@ -24,7 +24,7 @@ export function AddDeliveryPricing(info: any) {
   });
 }
 
-export function UpdateDisplayCatInfo(id: string, info: IDisplayCat) {
+export function UpdateDisplayCatInfo(id: string, info: any) {
   return new Promise(function (resolve, reject) {
     try {
       DisplayCatModel.updateOne({ _id: id }, { $set: { ...info } }, (error) => {
