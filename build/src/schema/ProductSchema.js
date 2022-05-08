@@ -10,7 +10,7 @@ exports.ProductSchema = new mongoose_1.default.Schema({
     vendor_id: String,
     regular_price: Number,
     sales_price: Number,
-    description: String,
+    description: Array,
     quantity: Number,
     date_added: String,
     name: String,

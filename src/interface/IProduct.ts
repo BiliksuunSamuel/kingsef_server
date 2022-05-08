@@ -21,7 +21,7 @@ export interface IProductInfo {
   regular_price: number;
   sales_price: number;
   discount: number;
-  description: string;
+  description: { id: any; value: string }[];
   quantity: number;
   date_added: string;
   name: string;
@@ -33,7 +33,7 @@ export interface IProductInfo {
   type: string;
   seo: string;
   estimated_delivery: { start: string; duration: number };
-  brands?: string;
+  brands: string;
   variable: { id: string; title: string; value: string }[];
   merit: number;
   country_code: string;
@@ -54,7 +54,7 @@ export interface INewProductInfo {
   regular_price: number;
   sales_price: number;
   discount: number;
-  description: string;
+  description: { id: any; value: string }[];
   quantity: number;
   date_added: string;
   name: string;
@@ -67,7 +67,7 @@ export interface INewProductInfo {
   type: any;
   seo: string;
   estimated_delivery: { start: string; duration: number };
-  brands?: string;
+  brands: string;
   variable: { id: string; title: string; value: string }[];
   country_code: string;
   details_listing: { id: string; title: string; value: any }[];

@@ -76,6 +76,7 @@ export function PrepareNewProductInfo(
     sub_category: info.sub_category,
     search_keyword: info.search_keyword,
     ispackaging: info.ispackaging,
+    brands: info.brands,
   };
   return Info;
 }
