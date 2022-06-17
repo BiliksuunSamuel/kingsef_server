@@ -255,14 +255,12 @@ function HtmlTemplate(info) {
         ? `
                       <table>
                       <tr>
-                        <th>Title</th>
-                        <th>Value</th>
+                        <th>Selection</th>
                         <th>Qnty</th>
                       </tr>
                       ${c.specification
             .map((cs) => `
                         <tr>
-                        <td>${cs.title}</th>
                         <td>${cs.value}</td>
                         <td>${cs.quantity}</td>
                          </tr>
