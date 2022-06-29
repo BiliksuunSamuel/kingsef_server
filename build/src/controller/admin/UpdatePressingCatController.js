@@ -16,9 +16,15 @@ function default_1(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = req.body;
+            const Info = yield (0, Services_1.GetDisplayCatById)(data.id);
+            if (Info) {
+                (0, Functions_1.RemoveFileFromDir)(Info.image);
+            }
             const info = {
                 id: data === null || data === void 0 ? void 0 : data.id,
-                image: yield (0, Functions_1.WriteBase64File)(data === null || data === void 0 ? void 0 : data.image.data, data.id + (0, uuid_1.v4)()),
+                image: (data === null || data === void 0 ? void 0 : data.image)
+                    ? yield (0, Functions_1.WriteBase64File)(data === null || data === void 0 ? void 0 : data.image, data.id + (0, uuid_1.v4)())
+                    : "",
             };
             yield (0, Services_1.UpdateDisplayCat)(info);
             res.send({ data: yield (0, Services_1.GetDisplayCats)(), message: "Update Successful" });

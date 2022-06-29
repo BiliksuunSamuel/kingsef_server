@@ -14,6 +14,7 @@ export enum Routes {
   pressing_cat_add = "/api/pressing/cat/add",
   pressing_cat_get = "/api/pressing/cat/get",
   pressing_cat_update = "/api/pressing/cat/update",
+  pressing_cat_delete = "/api/pressing/cat/delete",
   package_add = "/api/package/add",
   package_get = "/api/package/get",
   package_order_add = "/api/package/order/add",

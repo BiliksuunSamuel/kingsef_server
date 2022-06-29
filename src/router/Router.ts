@@ -91,6 +91,6 @@ router.post(
 router.post(Routes.chat_image_upload, ChatImageUploadController);
 router.post(Routes.password_reset, ResetPasswordOTPController);
 router.post(Routes.password_reset_pwd, ResetPasswordController);
-router.post(Routes.update_pressing_cat, WebUpdatePressingCartController);
+router.post(Routes.update_pressing_cat, UpdatePressingCatController);
 router.post(Routes.delete_pressing_cat, DeleteDisplayCatController);
 export default router;

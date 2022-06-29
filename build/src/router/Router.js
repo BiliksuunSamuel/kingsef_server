@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const admin_1 = require("../controller/admin");
 const DeleteDisplayCatController_1 = __importDefault(require("../controller/admin/DeleteDisplayCatController"));
-const WebUpdatePressingCartController_1 = __importDefault(require("../controller/admin/WebUpdatePressingCartController"));
 const controllers_1 = require("../controller/controllers");
 const products_1 = require("../controller/products");
 const Reviews_1 = require("../controller/Reviews");
@@ -53,6 +52,6 @@ router.post(Routes_1.Routes.package_order_info_update, admin_1.UpdatePackagingOr
 router.post(Routes_1.Routes.chat_image_upload, controllers_1.ChatImageUploadController);
 router.post(Routes_1.Routes.password_reset, controllers_1.ResetPasswordOTPController);
 router.post(Routes_1.Routes.password_reset_pwd, controllers_1.ResetPasswordController);
-router.post(Routes_1.Routes.update_pressing_cat, WebUpdatePressingCartController_1.default);
+router.post(Routes_1.Routes.update_pressing_cat, admin_1.UpdatePressingCatController);
 router.post(Routes_1.Routes.delete_pressing_cat, DeleteDisplayCatController_1.default);
 exports.default = router;

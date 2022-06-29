@@ -18,6 +18,7 @@ var Routes;
     Routes["pressing_cat_add"] = "/api/pressing/cat/add";
     Routes["pressing_cat_get"] = "/api/pressing/cat/get";
     Routes["pressing_cat_update"] = "/api/pressing/cat/update";
+    Routes["pressing_cat_delete"] = "/api/pressing/cat/delete";
     Routes["package_add"] = "/api/package/add";
     Routes["package_get"] = "/api/package/get";
     Routes["package_order_add"] = "/api/package/order/add";
