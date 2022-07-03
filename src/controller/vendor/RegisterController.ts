@@ -40,17 +40,17 @@ export default async function (req: Request, res: Response) {
         authenticated: false,
         otp: { code: otp, status: 0 },
       };
-      await SendMail(
-        PrepareEmail({
-          sender: "KinSef",
-          receiver: data.info.email,
-          subject: "Account Registration",
-          message: PrepareMessage({
-            name: `${data.info.firstname} ${data.info.lastname}`,
-            otp,
-          }),
-        })
-      );
+      // await SendMail(
+      //   PrepareEmail({
+      //     sender: "KinSef",
+      //     receiver: data.info.email,
+      //     subject: "Account Registration",
+      //     message: PrepareMessage({
+      //       name: `${data.info.firstname} ${data.info.lastname}`,
+      //       otp,
+      //     }),
+      //   })
+      // );
       Auth.password = await HashPassword(Auth.password);
       info.country.dial_code = info.country.dial_code[0];
       info.country.currency = info.country.currency[0];

@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Functions_1 = require("../../functions/Functions");
 const AuthServices_1 = require("../../services/AuthServices");
 const HandlePassword_1 = require("../../utilities/HandlePassword");
-const EmailServices_1 = require("../../services/EmailServices");
 const VendorServices_1 = require("../../services/VendorServices");
 const moment_1 = __importDefault(require("moment"));
 function default_1(req, res) {
@@ -44,15 +43,17 @@ function default_1(req, res) {
                     authenticated: false,
                     otp: { code: otp, status: 0 },
                 };
-                yield (0, EmailServices_1.SendMail)((0, EmailServices_1.PrepareEmail)({
-                    sender: "KinSef",
-                    receiver: data.info.email,
-                    subject: "Account Registration",
-                    message: (0, EmailServices_1.PrepareMessage)({
-                        name: `${data.info.firstname} ${data.info.lastname}`,
-                        otp,
-                    }),
-                }));
+                // await SendMail(
+                //   PrepareEmail({
+                //     sender: "KinSef",
+                //     receiver: data.info.email,
+                //     subject: "Account Registration",
+                //     message: PrepareMessage({
+                //       name: `${data.info.firstname} ${data.info.lastname}`,
+                //       otp,
+                //     }),
+                //   })
+                // );
                 Auth.password = yield (0, HandlePassword_1.HashPassword)(Auth.password);
                 info.country.dial_code = info.country.dial_code[0];
                 info.country.currency = info.country.currency[0];
